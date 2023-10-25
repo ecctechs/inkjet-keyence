@@ -92,14 +92,21 @@ namespace inkjet.UserControls
                 using (AddEditConnection frm = new AddEditConnection(obj))
                 {
 
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    if (frm.ShowDialog() == DialogResult.Cancel)
                     {
                         get_Connection();
                         metroGrid1.Show();
                     }
-                    
+
+                    else 
+                    { 
+                        get_Connection();
+                        metroGrid1.Show();
+                    }
                 }
             }
+
+        
         }
     }
 }

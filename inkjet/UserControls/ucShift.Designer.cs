@@ -39,13 +39,13 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.metroGrid1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtShiftName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.DateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.shiftNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtShiftName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.DateTimeStart = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shiftBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 64);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 60);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(119, 25);
             this.guna2HtmlLabel1.TabIndex = 19;
@@ -74,7 +74,7 @@
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(18, 115);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(18, 105);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(151, 25);
             this.guna2HtmlLabel3.TabIndex = 20;
@@ -91,7 +91,7 @@
             this.btnAdd.FillColor = System.Drawing.Color.Green;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(18, 162);
+            this.btnAdd.Location = new System.Drawing.Point(18, 144);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(83, 36);
             this.btnAdd.TabIndex = 29;
@@ -109,7 +109,7 @@
             this.btnDelete.FillColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(116, 162);
+            this.btnDelete.Location = new System.Drawing.Point(107, 144);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(83, 36);
             this.btnDelete.TabIndex = 30;
@@ -154,7 +154,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.GridColor = System.Drawing.Color.DimGray;
-            this.metroGrid1.Location = new System.Drawing.Point(18, 213);
+            this.metroGrid1.Location = new System.Drawing.Point(18, 186);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -168,7 +168,7 @@
             this.metroGrid1.RowHeadersVisible = false;
             this.metroGrid1.RowHeadersWidth = 51;
             this.metroGrid1.RowTemplate.Height = 35;
-            this.metroGrid1.Size = new System.Drawing.Size(428, 138);
+            this.metroGrid1.Size = new System.Drawing.Size(436, 173);
             this.metroGrid1.TabIndex = 31;
             this.metroGrid1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Dark;
             this.metroGrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -192,37 +192,6 @@
             this.metroGrid1.ThemeStyle.RowsStyle.Height = 35;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // txtShiftName
-            // 
-            this.txtShiftName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtShiftName.DefaultText = "";
-            this.txtShiftName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtShiftName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtShiftName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtShiftName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtShiftName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtShiftName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtShiftName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtShiftName.Location = new System.Drawing.Point(165, 64);
-            this.txtShiftName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtShiftName.Name = "txtShiftName";
-            this.txtShiftName.PasswordChar = '\0';
-            this.txtShiftName.PlaceholderText = "";
-            this.txtShiftName.SelectedText = "";
-            this.txtShiftName.Size = new System.Drawing.Size(229, 29);
-            this.txtShiftName.TabIndex = 32;
-            // 
-            // DateTimeStart
-            // 
-            this.DateTimeStart.Checked = false;
-            this.DateTimeStart.CustomFormat = "hh:mm";
-            this.DateTimeStart.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateTimeStart.Location = new System.Drawing.Point(175, 115);
-            this.DateTimeStart.Name = "DateTimeStart";
-            this.DateTimeStart.Size = new System.Drawing.Size(107, 28);
-            this.DateTimeStart.TabIndex = 35;
             // 
             // shiftNoDataGridViewTextBoxColumn
             // 
@@ -259,6 +228,37 @@
             // shiftBindingSource
             // 
             this.shiftBindingSource.DataSource = typeof(inkjet.Class.Shift);
+            // 
+            // txtShiftName
+            // 
+            this.txtShiftName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtShiftName.DefaultText = "";
+            this.txtShiftName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtShiftName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtShiftName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtShiftName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtShiftName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtShiftName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtShiftName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtShiftName.Location = new System.Drawing.Point(165, 57);
+            this.txtShiftName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtShiftName.Name = "txtShiftName";
+            this.txtShiftName.PasswordChar = '\0';
+            this.txtShiftName.PlaceholderText = "";
+            this.txtShiftName.SelectedText = "";
+            this.txtShiftName.Size = new System.Drawing.Size(229, 29);
+            this.txtShiftName.TabIndex = 32;
+            // 
+            // DateTimeStart
+            // 
+            this.DateTimeStart.Checked = false;
+            this.DateTimeStart.CustomFormat = "hh:mm";
+            this.DateTimeStart.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateTimeStart.Location = new System.Drawing.Point(175, 104);
+            this.DateTimeStart.Name = "DateTimeStart";
+            this.DateTimeStart.Size = new System.Drawing.Size(107, 28);
+            this.DateTimeStart.TabIndex = 35;
             // 
             // ucShift
             // 
