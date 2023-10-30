@@ -44,7 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.CsvButtonStart = new Guna.UI2.WinForms.Guna2CircleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -306,31 +306,32 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.guna2CircleButton1);
+            this.panel3.Controls.Add(this.CsvButtonStart);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(701, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(693, 349);
             this.panel3.TabIndex = 1;
             // 
-            // guna2CircleButton1
+            // CsvButtonStart
             // 
-            this.guna2CircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton1.BorderColor = System.Drawing.Color.Teal;
-            this.guna2CircleButton1.BorderThickness = 5;
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Location = new System.Drawing.Point(358, 100);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(232, 203);
-            this.guna2CircleButton1.TabIndex = 1;
-            this.guna2CircleButton1.Text = "START";
+            this.CsvButtonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CsvButtonStart.BorderColor = System.Drawing.Color.Teal;
+            this.CsvButtonStart.BorderThickness = 5;
+            this.CsvButtonStart.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CsvButtonStart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CsvButtonStart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CsvButtonStart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CsvButtonStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.CsvButtonStart.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CsvButtonStart.ForeColor = System.Drawing.Color.White;
+            this.CsvButtonStart.Location = new System.Drawing.Point(358, 100);
+            this.CsvButtonStart.Name = "CsvButtonStart";
+            this.CsvButtonStart.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.CsvButtonStart.Size = new System.Drawing.Size(232, 203);
+            this.CsvButtonStart.TabIndex = 1;
+            this.CsvButtonStart.Text = "START";
+            this.CsvButtonStart.Click += new System.EventHandler(this.CsvButtonStart_Click);
             // 
             // ucCSVmarking
             // 
@@ -367,6 +368,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button btnUpload;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2CircleButton CsvButtonStart;
     }
 }

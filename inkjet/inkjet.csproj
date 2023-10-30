@@ -102,6 +102,7 @@
     <Compile Include="AddEditConnection.Designer.cs">
       <DependentUpon>AddEditConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Client.cs" />
     <Compile Include="Class\Datalog.cs" />
     <Compile Include="Class\Email.cs" />
     <Compile Include="Class\Error.cs" />
