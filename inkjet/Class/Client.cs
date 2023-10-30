@@ -55,7 +55,7 @@ namespace client
 
                     // Creation of message that
                     // we will send to Server
-                    byte[] messageSent = Encoding.ASCII.GetBytes("FW,2");
+                    byte[] messageSent = Encoding.ASCII.GetBytes("test222\r");
                     int byteSent = sender.Send(messageSent);
 
                     byte[] messageReceived = new byte[1024];
