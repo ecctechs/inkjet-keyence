@@ -137,30 +137,6 @@ namespace inkjet.UserControls
 
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    using (var sw = new StreamWriter(sfd.FileName))
-                    {
-                        using (var csv = new CsvWriter(sw, CultureInfo.InvariantCulture))
-                        {
-                            csv.WriteHeader(typeof(Datalog));
-                            foreach (Datalog s in datalogBindingSource.DataSource as List<Datalog>)
-                            {
-                                csv.NextRecord();
-                                csv.WriteRecord(s);
-
-                            }
-                        }
-                    }
-                    MessageBox.Show(this, "Your data has been successfully export.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
         private void ucData_Load(object sender, EventArgs e)
         {
             getShift_DropDown();

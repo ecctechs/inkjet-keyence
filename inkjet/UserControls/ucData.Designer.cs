@@ -62,6 +62,7 @@
             // 
             // btnExport
             // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExport.BorderRadius = 5;
             this.btnExport.BorderThickness = 3;
             this.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -71,7 +72,7 @@
             this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnExport.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(1407, 20);
+            this.btnExport.Location = new System.Drawing.Point(1425, 37);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(114, 45);
             this.btnExport.TabIndex = 20;
@@ -80,16 +81,17 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.BorderRadius = 5;
             this.btnSearch.BorderThickness = 3;
             this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSearch.FillColor = System.Drawing.Color.Gold;
+            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(209)))), ((int)(((byte)(42)))));
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(1287, 20);
+            this.btnSearch.Location = new System.Drawing.Point(1305, 37);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(114, 45);
             this.btnSearch.TabIndex = 19;
@@ -103,21 +105,22 @@
             this.mtDateEnd.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtDateEnd.ForeColor = System.Drawing.Color.White;
             this.mtDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.mtDateEnd.Location = new System.Drawing.Point(1029, 20);
+            this.mtDateEnd.Location = new System.Drawing.Point(979, 35);
             this.mtDateEnd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.mtDateEnd.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.mtDateEnd.Name = "mtDateEnd";
-            this.mtDateEnd.Size = new System.Drawing.Size(237, 45);
+            this.mtDateEnd.Size = new System.Drawing.Size(218, 45);
             this.mtDateEnd.TabIndex = 18;
             this.mtDateEnd.Value = new System.DateTime(2023, 9, 14, 21, 45, 49, 25);
             // 
             // guna2HtmlLabel4
             // 
+            this.guna2HtmlLabel4.AutoSize = false;
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(956, 33);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(936, 44);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(35, 25);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(100, 25);
             this.guna2HtmlLabel4.TabIndex = 17;
             this.guna2HtmlLabel4.Text = "To  : ";
             // 
@@ -128,21 +131,22 @@
             this.mtDateStart.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtDateStart.ForeColor = System.Drawing.Color.White;
             this.mtDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.mtDateStart.Location = new System.Drawing.Point(728, 20);
+            this.mtDateStart.Location = new System.Drawing.Point(703, 37);
             this.mtDateStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.mtDateStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.mtDateStart.Name = "mtDateStart";
-            this.mtDateStart.Size = new System.Drawing.Size(200, 45);
+            this.mtDateStart.Size = new System.Drawing.Size(218, 43);
             this.mtDateStart.TabIndex = 16;
             this.mtDateStart.Value = new System.DateTime(2023, 9, 14, 21, 45, 49, 25);
             // 
             // guna2HtmlLabel3
             // 
+            this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(632, 33);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(628, 44);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(63, 25);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(100, 25);
             this.guna2HtmlLabel3.TabIndex = 15;
             this.guna2HtmlLabel3.Text = "Date : ";
             // 
@@ -158,7 +162,7 @@
             this.mcbShift.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mcbShift.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.mcbShift.ItemHeight = 30;
-            this.mcbShift.Location = new System.Drawing.Point(401, 29);
+            this.mcbShift.Location = new System.Drawing.Point(399, 37);
             this.mcbShift.Name = "mcbShift";
             this.mcbShift.Size = new System.Drawing.Size(193, 36);
             this.mcbShift.TabIndex = 14;
@@ -166,11 +170,12 @@
             // 
             // guna2HtmlLabel2
             // 
+            this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(334, 33);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(334, 44);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(52, 25);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(100, 25);
             this.guna2HtmlLabel2.TabIndex = 13;
             this.guna2HtmlLabel2.Text = "Shift : ";
             // 
@@ -186,7 +191,7 @@
             this.mcbInkjet.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mcbInkjet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.mcbInkjet.ItemHeight = 30;
-            this.mcbInkjet.Location = new System.Drawing.Point(107, 29);
+            this.mcbInkjet.Location = new System.Drawing.Point(106, 37);
             this.mcbInkjet.Name = "mcbInkjet";
             this.mcbInkjet.Size = new System.Drawing.Size(193, 36);
             this.mcbInkjet.TabIndex = 12;
@@ -194,11 +199,12 @@
             // 
             // guna2HtmlLabel1
             // 
+            this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(26, 33);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(26, 44);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(64, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(100, 25);
             this.guna2HtmlLabel1.TabIndex = 11;
             this.guna2HtmlLabel1.Text = "Inkjet :";
             // 
@@ -344,6 +350,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.mcbInkjet);
+            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnSearch);
@@ -353,8 +361,6 @@
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.mcbShift);
             this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.mcbInkjet);
-            this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "ucData";
             this.Size = new System.Drawing.Size(1563, 842);
             this.Load += new System.EventHandler(this.ucData_Load);
@@ -363,7 +369,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datalogBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
