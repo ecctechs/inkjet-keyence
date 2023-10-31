@@ -107,6 +107,7 @@
     <Compile Include="Class\Email.cs" />
     <Compile Include="Class\Error.cs" />
     <Compile Include="Class\Inkjet.cs" />
+    <Compile Include="Class\Send-Emil.cs" />
     <Compile Include="Class\Shift.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="frmMain.cs">

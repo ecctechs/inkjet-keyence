@@ -19,6 +19,8 @@ namespace inkjet.UserControls
         public ucConnection()
         {
             InitializeComponent();
+            client.Program program = new client.Program();
+            program.Execute_Client();
         }
 
         private void ucConnection_Load(object sender, EventArgs e)

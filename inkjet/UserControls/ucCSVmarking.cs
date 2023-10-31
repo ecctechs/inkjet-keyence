@@ -14,16 +14,18 @@ namespace inkjet.UserControls
     {
         public ucCSVmarking()
         {
-            InitializeComponent();   
-            
+            InitializeComponent();              
         }
 
         private void CsvButtonStart_Click(object sender, EventArgs e)
         {
             client.Program program = new client.Program();
-            var message = "test";
-            program.Execute_Client(message);
+            program.Execute_Client();
 
+            send_email.Send_Email email = new send_email.Send_Email();
+            email.send();
         }
+
+
     }
 }
