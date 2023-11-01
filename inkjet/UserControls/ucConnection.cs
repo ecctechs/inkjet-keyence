@@ -19,12 +19,11 @@ namespace inkjet.UserControls
         public ucConnection()
         {
             InitializeComponent();
-            client.Program program = new client.Program();
-            program.Execute_Client();
         }
 
         private void ucConnection_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             get_Connection();
         }
 
@@ -79,6 +78,8 @@ namespace inkjet.UserControls
                 //frm.ShowDialog();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
+                    client.Program program = new client.Program();
+                    program.Execute_Client();
                     get_Connection();
                     metroGrid1.Show();
                 }
@@ -96,19 +97,33 @@ namespace inkjet.UserControls
 
                     if (frm.ShowDialog() == DialogResult.Cancel)
                     {
-                        get_Connection();
-                        metroGrid1.Show();
+                        client.Program program = new client.Program();
+                        program.Execute_Client();
                     }
 
                     else 
-                    { 
-                        get_Connection();
-                        metroGrid1.Show();
+                    {
+                        client.Program program = new client.Program();
+                        program.Execute_Client();
                     }
                 }
             }
 
         
+        }
+
+        public void refreshGird() 
+        {
+            client.Program program = new client.Program();
+            program.Execute_Client();
+            get_Connection();
+            metroGrid1.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            refreshGird();
+            timer1.Start();
         }
     }
 }

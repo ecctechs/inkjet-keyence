@@ -10,30 +10,30 @@ namespace send_email
 {
     public class Send_Email
     {
-        public void send()
+        public void send(string name, string subject, string detail)
         {
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress("theerasak789900@gmail.com");
-            mailMessage.To.Add("theerasak789900@gmail.com");
-            mailMessage.Subject = "Subject";
-            mailMessage.Body = "This is test email";
+            mailMessage.To.Add(name);
+            mailMessage.Subject = subject;
+            mailMessage.Body = detail;
 
-            //SmtpClient smtpClient = new SmtpClient();
-            //smtpClient.Host = "smtp.gmail.com";
-            //smtpClient.Port = 587;
-            //smtpClient.UseDefaultCredentials = false;
-            //smtpClient.Credentials = new NetworkCredential("theerasak789900@gmail.com", "nabqxphxunwfkltb");
-            //smtpClient.EnableSsl = true;
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.Port = 587;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential("theerasak789900@gmail.com", "nabqxphxunwfkltb");
+            smtpClient.EnableSsl = true;
 
-            //try
-            //{
-            //    smtpClient.Send(mailMessage);
-            //    Console.WriteLine("Email Sent Successfully.");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Error: " + ex.Message);
-            //}
+            try
+            {
+                smtpClient.Send(mailMessage);
+                Console.WriteLine("Email Sent Successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }

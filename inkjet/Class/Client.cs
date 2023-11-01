@@ -16,6 +16,10 @@ using System.Net.NetworkInformation;
 using System.Dynamic;
 using static System.Net.WebRequestMethods;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace client
 {
@@ -31,8 +35,11 @@ namespace client
         // ExecuteClient() Method
         public static void ExecuteClient()
         {
-            List<Inkjet> records;
-            List<string> IP_for_Update = new List<string>();
+            List<Inkjet> records;           
+            List<Inkjet> records_update = new List<Inkjet>();
+
+            //var list = new List<Tuple<string, string>>();
+            string new_status;
 
             using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -45,37 +52,35 @@ namespace client
 
                 for (int y = 0; y < records.Count; ++y)
                 {
-                    Console.WriteLine(records[y].IPAdress);                   
 
                     string serverIP = records[y].IPAdress;
                     int port = 37022;
+                
+                    var ping = new Ping();
+                    var reply = ping.Send(records[y].IPAdress, 60 * 10); // 1 minute time out (in ms)
+                    Console.WriteLine("Status :  " + reply.Status + " \n Time : " + reply.RoundtripTime.ToString() + " \n Address : " + reply.Address);
+                   
                     IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Parse(serverIP), port);
-
-                    //foreach (IPAddress ipaddress in ipHost.AddressList)
-                    //{
-                    //    Console.WriteLine("IP{0}", ipaddress);
-                    //}
 
                     Socket sender = new Socket(localEndPoint.AddressFamily,
                                SocketType.Stream, ProtocolType.Tcp);
-                   
 
-                    try
+                    Console.WriteLine("Status :  " + reply.Status + " \n Time : " + reply.RoundtripTime.ToString() + " \n Address : " + reply.Address);
+
+                    break;
+                    if (reply.Address != null)
                     {
-                        // Connect Socket to the remote 
-                        // endpoint using method Connect()
-                        sender.Connect(localEndPoint);
-
- 
-                            //else
-                            //    throw new Exception("Timed out");
+                        try
+                        {
+                            //Connect Socket to the remote
+                            //endpoint using method Connect()
+                            sender.Connect(localEndPoint);
 
                             string input = sender.RemoteEndPoint.ToString();
                             int index = input.IndexOf(":");
                             if (index >= 0)
                                 input = input.Substring(0, index);
 
-                            //UpdateInkjetStatus(serverIP);
 
                             //We print EndPoint information
                             // that we are connected
@@ -84,54 +89,71 @@ namespace client
 
                             //Creation of message that
                             // we will send to Server
-                            byte[] messageSent = Encoding.ASCII.GetBytes("ZZ,2\r");
+                            byte[] messageSent = Encoding.ASCII.GetBytes("DD\r");
                             int byteSent = sender.Send(messageSent);
 
+                            // Data buffer
                             byte[] messageReceived = new byte[1024];
 
-                            Console.WriteLine("Message from Server  -> {0}",
+
+                            // We receive the message using 
+                            // the method Receive(). This 
+                            // method returns number of bytes
+                            // received, that we'll use to 
+                            // convert them to string
+                            int byteRecv = sender.Receive(messageReceived);
+                            Console.WriteLine("Message from Server -> {0}",
                                   Encoding.ASCII.GetString(messageReceived,
-                                                             0, byteSent));
+                                                             0, byteRecv));
+    
+                            new_status = "Connected";                                                  
+                            //list.Add(new Tuple<string, string>(input, new_status));
+                            
+                            records_update.Add(new Inkjet { IPAdress = input , Status = new_status });
 
-                            // Close Socket using 
-                            // the method Close()
-                            IP_for_Update.Add(input);
-
+                            //Close Socket using
+                            //the method Close()
                             sender.Shutdown(SocketShutdown.Both);
                             sender.Close();
                         }
-                    
 
-                    // Manage of Socket's Exceptions
-                    catch (ArgumentNullException ane)
-                    {
-                        Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
+
+                        // Manage of Socket's Exceptions
+                        catch (ArgumentNullException ane)
+                        {
+                            Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
+                        }
+
+                        catch (SocketException se)
+                        {
+                            Console.WriteLine("SocketException : {0}", se.ToString());
+                            
+                        }
+
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Unexpected exception : {0}", e.ToString());
+                        }
+
                     }
-
-                    catch (SocketException se)
-                    {
-                        Console.WriteLine("SocketException : {0}", se.ToString());
-                        IP_for_Update.Add("0");
+                    else {
+                        new_status = "NOT Connected";                      
+                        //list.Add(new Tuple<string, string>("0", new_status));
+                        records_update.Add(new Inkjet { IPAdress = "0", Status = new_status });
                     }
-
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Unexpected exception : {0}", e.ToString());
-                    }
-
                 }
             }
             catch (Exception e)
             {
-
+                new_status = "NOT Connected";
                 Console.WriteLine(e.ToString());
+                records_update.Add(new Inkjet { IPAdress = "0", Status = new_status });
             }
-            UpdateInkjetStatus(IP_for_Update);
-        }
-        public static void UpdateInkjetStatus(List<string> p) 
-        {
-            
 
+            UpdateInkjetStatus(records_update);
+        }
+        public static void UpdateInkjetStatus(List<Inkjet> p) 
+        {
             List<Inkjet> records;
             using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -141,14 +163,23 @@ namespace client
     
                 for (int i = 0; i < p.Count; ++i)
                 {
-                    if (p[i] == records[i].IPAdress)
+                    if (p[i].IPAdress == records[i].IPAdress)
                     {
-                        records[i].Status = "Connected";
+                        if (p[i].Status != records[i].Status)
+                        {
+                            SendEmail(records[i].IPAdress, "Connected");
+                        }
+                        records[i].Status = "Connected";                   
                     }
                     else
                     {
-                        records[i].Status = "NOT Connected";
+                        if (p[i].Status != records[i].Status)
+                        {
+                            SendEmail(records[i].IPAdress, "NOT Connected");
+                        }
+                        records[i].Status = "NOT Connected";                       
                     }
+                                    
                         records[i].InkJetID = records[i].InkJetID;
                         records[i].InkJetName = records[i].InkJetName;
                         records[i].IPAdress = records[i].IPAdress;
@@ -168,8 +199,17 @@ namespace client
             {
                 csv2.WriteRecords(records);
             }
-
-
         }
+
+        public static void SendEmail(string ip,string status)
+        {
+            send_email.Send_Email email = new send_email.Send_Email();
+            string name = "theerasak789900@gmail.com";
+            string subject = "Inkjet " + ip + "Status";
+            string detail = status;
+            email.send(name, subject, detail);
+        }
+
+
     }
 }

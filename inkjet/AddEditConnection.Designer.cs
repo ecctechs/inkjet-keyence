@@ -41,8 +41,9 @@
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtInkjetName = new System.Windows.Forms.TextBox();
-            this.txtEditID = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.txtEditID = new System.Windows.Forms.TextBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -233,6 +234,10 @@
             this.txtInkjetName.Size = new System.Drawing.Size(342, 28);
             this.txtInkjetName.TabIndex = 30;
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(inkjet.Class.Inkjet);
+            // 
             // txtEditID
             // 
             this.txtEditID.Location = new System.Drawing.Point(61, 228);
@@ -241,9 +246,11 @@
             this.txtEditID.TabIndex = 31;
             this.txtEditID.Visible = false;
             // 
-            // bindingSource1
+            // guna2DragControl1
             // 
-            this.bindingSource1.DataSource = typeof(inkjet.Class.Inkjet);
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // AddEditConnection
             // 
@@ -292,5 +299,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.TextBox txtInkjetName;
         private System.Windows.Forms.TextBox txtEditID;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

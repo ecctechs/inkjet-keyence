@@ -22,8 +22,7 @@ namespace inkjet.UserControls
             client.Program program = new client.Program();
             program.Execute_Client();
 
-            send_email.Send_Email email = new send_email.Send_Email();
-            email.send();
+          
         }
 
 

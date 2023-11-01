@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -47,6 +48,7 @@
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -297,5 +299,6 @@
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private System.Windows.Forms.Timer timer1;
     }
 }
