@@ -6,16 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using inkjet.Class;
 using inkjet.UserControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace inkjet
 {
     public partial class frmMain : Form
     {
+        System.Timers.Timer t;
         private static frmMain _instance;
-
         public static frmMain Instance
         {
             get
@@ -28,9 +30,9 @@ namespace inkjet
 
         public frmMain()
         {
-            InitializeComponent();
+            InitializeComponent();                    
         }
-
+        
         public void addUserControl(UserControl userControl)
         {
             if (User.getUser() == "" || User.getUser() == null)
@@ -56,12 +58,21 @@ namespace inkjet
 
         private void btnOverview_Click(object sender, EventArgs e)
         {
+            t.Stop();
+            t.Start();
             ucOverview uc =  new ucOverview();
             addUserControl(uc);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            t = new System.Timers.Timer();
+            t.Interval = 5000;
+            t.Elapsed += OnTimeEvent;
+            t.Stop();
+            t.Start();
+
+
             _instance = this;
             get_Userinfo();
             ucLogin uc = new ucLogin();
@@ -102,24 +113,29 @@ namespace inkjet
 
         private void btnCsv_Click(object sender, EventArgs e)
         {
+            //t.Stop();
             ucCSVmarking uc = new ucCSVmarking();
             addUserControl(uc);
         }
 
         private void btnError_Click(object sender, EventArgs e)
         {
+            //t.Stop();
             ucError uc = new ucError();
             addUserControl(uc);
         }
 
         private void btnDataLog_Click(object sender, EventArgs e)
         {
+            //t.Stop();
             ucData uc = new ucData();
             addUserControl(uc);
         }
 
         private void btnConnection_Click(object sender, EventArgs e)
         {
+            t.Stop();
+            t.Start();
             ucConnection uc = new ucConnection();
             addUserControl(uc);
         }
@@ -145,6 +161,12 @@ namespace inkjet
                     }
                 }
             }
+        }
+
+        private void OnTimeEvent(object sender, EventArgs e)
+        {
+            client.Program program = new client.Program();
+            program.Execute_Client();
         }
     }
 }

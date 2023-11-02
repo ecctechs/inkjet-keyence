@@ -7,15 +7,30 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using CsvHelper;
 using inkjet.Class;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace inkjet.UserControls
 {
     public partial class ucConnection : UserControl
     {
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        public void InitTimer()
+        {         
+            myTimer = new System.Windows.Forms.Timer();
+            myTimer.Tick += new EventHandler(TimerEventProcessor);
+
+            // Sets the timer interval to 5 seconds.
+            myTimer.Interval = 5000;
+            myTimer.Stop();
+            myTimer.Start();
+        }
         public ucConnection()
         {
             InitializeComponent();
@@ -23,8 +38,8 @@ namespace inkjet.UserControls
 
         private void ucConnection_Load(object sender, EventArgs e)
         {
-            timer1.Start();
             get_Connection();
+            InitTimer();
         }
 
         private void get_Connection()
@@ -72,14 +87,12 @@ namespace inkjet.UserControls
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
+        {            
             using (AddEditConnection frm = new AddEditConnection(new Inkjet()))
             {
                 //frm.ShowDialog();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    client.Program program = new client.Program();
-                    program.Execute_Client();
                     get_Connection();
                     metroGrid1.Show();
                 }
@@ -97,33 +110,23 @@ namespace inkjet.UserControls
 
                     if (frm.ShowDialog() == DialogResult.Cancel)
                     {
-                        client.Program program = new client.Program();
-                        program.Execute_Client();
+                        get_Connection();
+                        metroGrid1.Show();
                     }
 
                     else 
                     {
-                        client.Program program = new client.Program();
-                        program.Execute_Client();
+                        get_Connection();
+                        metroGrid1.Show();
                     }
                 }
             }
-
-        
         }
 
-        public void refreshGird() 
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
-            client.Program program = new client.Program();
-            program.Execute_Client();
             get_Connection();
             metroGrid1.Show();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            refreshGird();
-            timer1.Start();
         }
     }
 }

@@ -26,6 +26,18 @@ namespace inkjet.UserControls
             InitializeComponent();           
         }
 
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        public void InitTimer()
+        {
+            myTimer = new System.Windows.Forms.Timer();
+            myTimer.Tick += new EventHandler(TimerEventProcessor);
+
+            // Sets the timer interval to 5 seconds.
+            myTimer.Interval = 5000;
+            myTimer.Stop();
+            myTimer.Start();
+        }
+
         private void get_item()
         {
             
@@ -90,31 +102,13 @@ namespace inkjet.UserControls
         }
         private void ucOverview_Load(object sender, EventArgs e)
         {
-            //timer1.Stop();
-            //timer1.Start();
-            //if (timer1.Enabled)
-            //{
-            //    RefreshMyForm();
-            //}
-        }
-
-        public void RefreshMyForm()
-        {
-            //update form with latest Data
             get_item();
-            client.Program program = new client.Program();
-            program.Execute_Client();
+            InitTimer();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
-            RefreshMyForm();
+            get_item();
         }
-
-        //private void timer1_Tick(object sender, EventArgs e) //ถ้าครบ 5 นาที
-        //{
-        //    RefreshMyForm();
-        //    //timer1.Start();
-        //}
     }
 }
