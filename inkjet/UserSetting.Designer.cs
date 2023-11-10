@@ -102,7 +102,7 @@
             this.btnUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUser.FillColor = System.Drawing.Color.Silver;
+            this.btnUser.FillColor = System.Drawing.Color.Black;
             this.btnUser.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUser.ForeColor = System.Drawing.Color.White;
             this.btnUser.Location = new System.Drawing.Point(4, 161);
@@ -125,7 +125,7 @@
             this.btnShift.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnShift.DisabledState.FillColor = System.Drawing.Color.Silver;
             this.btnShift.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnShift.FillColor = System.Drawing.Color.Silver;
+            this.btnShift.FillColor = System.Drawing.Color.Black;
             this.btnShift.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShift.ForeColor = System.Drawing.Color.White;
             this.btnShift.Location = new System.Drawing.Point(4, 88);
@@ -148,7 +148,7 @@
             this.btnEmail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEmail.FillColor = System.Drawing.Color.Silver;
+            this.btnEmail.FillColor = System.Drawing.Color.Black;
             this.btnEmail.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmail.ForeColor = System.Drawing.Color.White;
             this.btnEmail.Location = new System.Drawing.Point(3, 7);

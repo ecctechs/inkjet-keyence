@@ -18,9 +18,9 @@ using WinForms = System.Windows.Forms;
 
 namespace inkjet.UserControls
 {
-
     public partial class ucOverview : UserControl
     {
+
         public ucOverview()
         {
             InitializeComponent();           
@@ -38,21 +38,13 @@ namespace inkjet.UserControls
             myTimer.Start();
         }
 
-        private void get_item()
+        public void get_item()
         {
-            
             flowLayoutPanel1.Controls.Clear();
-            List<Inkjet> records;
-
-            using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                records = csv.GetRecords<Inkjet>().ToList();
-            }
+            List<Inkjet> records = Inkjet.ListInkjet();
 
             for (int i = 0; i < records.Count; i++)
             {
-
                 itemOverview item = new itemOverview();
                 item.guna2HtmlLabel9.Text = records[i].InkJetName;
                 item.guna2HtmlLabel10.Text = records[i].IPAdress;

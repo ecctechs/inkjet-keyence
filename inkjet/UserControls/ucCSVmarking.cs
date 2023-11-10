@@ -19,8 +19,7 @@ namespace inkjet.UserControls
 
         private void CsvButtonStart_Click(object sender, EventArgs e)
         {
-            client.Program program = new client.Program();
-            program.Execute_Client();
+
 
           
         }

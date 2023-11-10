@@ -15,7 +15,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace inkjet
 {
     public partial class frmMain : Form
-    {
+    {     
         System.Timers.Timer t;
         private static frmMain _instance;
         public static frmMain Instance
@@ -30,7 +30,7 @@ namespace inkjet
 
         public frmMain()
         {
-            InitializeComponent();                    
+            InitializeComponent();
         }
         
         public void addUserControl(UserControl userControl)
@@ -72,7 +72,6 @@ namespace inkjet
             t.Stop();
             t.Start();
 
-
             _instance = this;
             get_Userinfo();
             ucLogin uc = new ucLogin();
@@ -113,7 +112,7 @@ namespace inkjet
 
         private void btnCsv_Click(object sender, EventArgs e)
         {
-            //t.Stop();
+            t.Stop();
             ucCSVmarking uc = new ucCSVmarking();
             addUserControl(uc);
         }

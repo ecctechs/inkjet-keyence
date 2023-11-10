@@ -24,89 +24,30 @@ namespace inkjet.UserControls
 
         private void ucEmail_Load(object sender, EventArgs e)
         {
+            metroGrid1.DefaultCellStyle.SelectionBackColor = Color.DarkOrange;
+            metroGrid1.DefaultCellStyle.SelectionForeColor = Color.Black;
             get_email();
         }
 
         public void get_email()
         {
-            using (var reader = new StreamReader("C:\\Users\\ADMIN\\Desktop\\test\\email.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                var records = csv.GetRecords<Email>();
-                emailBindingSource.DataSource = records;
-            }
-
+            List<Email> records = Email.ListEmail();
+            emailBindingSource.DataSource = records;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //var running_id = metroGrid1.Rows.Count;
-            var input_email = txtEmail.Text.Trim();
-            var chk_duplicate = false;
+            var input_email = txtEmail.Text;
+            List<Email> list_email = new List<Email>();
 
-            if (input_email != "")
+            if (input_email.Trim() != "")
             {
-                List<Email> records;
-
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\email.csv"))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                    records = csv.GetRecords<Email>().ToList();
-
-                    if (records.Count == 0)
-                    {
-                        chk_duplicate = true;
-                    }
-
-                    for (int i = 0; i < records.Count; i++)
-                    {
-         
-                        if (records[i].EmailName != input_email)
-                        {
-                            chk_duplicate = true;
-                            continue;
-                        }
-                        else
-                        {
-                            chk_duplicate = false;
-                            break;
-                        }
-                    }
-
-
-                }
-                Console.WriteLine(records.Count);
-                int running_id;
-                if (records.Count > 0)
-                {
-                    var lastItem = records.LastOrDefault();
-                    running_id = lastItem.EmailNo + 1;
-                }
-                else
-                    running_id = 1;
-                {
-
-                };
-
+                var chk_duplicate = Email.Duplicate_Email(input_email);
+                Console.WriteLine(chk_duplicate);
                 if (chk_duplicate == true)
                 {
-                    var records_add = new List<Email>
-                    {
-                    new Email { EmailNo = running_id, EmailName = input_email },
-                     };
-                    var config = new CsvConfiguration(CultureInfo.InvariantCulture)
-                    {
-                        // Don't write the header again.
-                        HasHeaderRecord = false,
-                    };
-                    using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\email.csv", FileMode.Append))
-                    using (var writer = new StreamWriter(stream))
-                    using (var csv = new CsvWriter(writer, config))
-                    {
-                        csv.WriteRecords(records_add);
-                    }
-
-
+                    list_email.Add(new Email { EmailNo = Email.running_id, EmailName = input_email });
+                    Email.Add_Email(list_email);
                 }
                 else
                 {
@@ -125,31 +66,12 @@ namespace inkjet.UserControls
         {
             var id = Convert.ToInt32(metroGrid1.Rows[metroGrid1.CurrentRow.Index].Cells[0].Value);
 
-
             if (MessageBox.Show(this, "Yes/Cancel", "Delete Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
             {
-                List<Email> records;
-
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\email.csv"))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                    records = csv.GetRecords<Email>().ToList();
-                    int row = metroGrid1.RowCount;
-                    for (int i = 0; i < records.Count; ++i)
-                    {
-                        if (records[i].EmailNo == id)
-                        {
-                            records.RemoveAt(i);
-                        }
-                    }
-                }
-
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\email.csv"))
-                using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                {
-                    csvWriter.WriteRecords(records);
-                }
+                List<Email> records = Email.Delete_Email(id);
+                Email.Update_Email(records);
             }
+
             get_email();
             metroGrid1.Show();
         }

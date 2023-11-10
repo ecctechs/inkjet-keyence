@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using CsvHelper;
+using Guna.UI2.WinForms;
 using inkjet.Class;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
@@ -22,67 +23,47 @@ namespace inkjet.UserControls
     {
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         public void InitTimer()
-        {         
+        {
             myTimer = new System.Windows.Forms.Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
 
             // Sets the timer interval to 5 seconds.
             myTimer.Interval = 5000;
             myTimer.Stop();
-            myTimer.Start();
+            myTimer.Start();            
         }
         public ucConnection()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
 
         private void ucConnection_Load(object sender, EventArgs e)
         {
+            metroGrid1.DefaultCellStyle.SelectionBackColor = Color.DarkOrange;
+            metroGrid1.DefaultCellStyle.SelectionForeColor = Color.Black;           
             get_Connection();
-            InitTimer();
+            Statu_Color();
+            InitTimer();            
         }
 
-        private void get_Connection()
+        public void get_Connection()
         {
-            List<Inkjet> records;
-
-            using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                records = csv.GetRecords<Inkjet>().ToList();
-                inkjetBindingSource.DataSource = records;
-            }
+            List<Inkjet> records = Inkjet.ListInkjet();
+            inkjetBindingSource.DataSource = records;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var id = Convert.ToInt32(metroGrid1.Rows[metroGrid1.CurrentRow.Index].Cells[0].Value);
-
+           
             if (MessageBox.Show(this, "Yes/Cancel", "Delete Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
             {
-                List<Inkjet> records;
-
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                    records = csv.GetRecords<Inkjet>().ToList();
-                    int row = metroGrid1.RowCount;
-                    for (int i = 0; i < records.Count; ++i)
-                    {
-                        if (records[i].InkJetID == id)
-                        {
-                            records.RemoveAt(i);
-                        }
-                    }
-                }
-
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-                using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                {
-                    csvWriter.WriteRecords(records);
-                }
+                List<Inkjet> records = Inkjet.Delete_Inkjet(id);
+                Inkjet.Update_Inkjet(records);
             }
+
             get_Connection();
+            Statu_Color();
             metroGrid1.Show();
         }
 
@@ -94,6 +75,8 @@ namespace inkjet.UserControls
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     get_Connection();
+
+                    Statu_Color();
                     metroGrid1.Show();
                 }
             }
@@ -111,12 +94,14 @@ namespace inkjet.UserControls
                     if (frm.ShowDialog() == DialogResult.Cancel)
                     {
                         get_Connection();
+                        Statu_Color();
                         metroGrid1.Show();
                     }
 
                     else 
                     {
                         get_Connection();
+                        Statu_Color();
                         metroGrid1.Show();
                     }
                 }
@@ -126,7 +111,35 @@ namespace inkjet.UserControls
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             get_Connection();
+            Statu_Color();
             metroGrid1.Show();
+        }
+
+        public void Statu_Color()
+        {
+            DataGridViewCellStyle style = new DataGridViewCellStyle();          
+            style.ForeColor = Color.Green;
+            style.SelectionForeColor = Color.Green;
+            style.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //style.Font = "Century Gothic, 10.2pt, style = Bold";
+
+            DataGridViewCellStyle style2 = new DataGridViewCellStyle();
+            style2.ForeColor = Color.Red;
+            style2.SelectionForeColor = Color.Red;
+            style2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            foreach (DataGridViewRow row in metroGrid1.Rows)
+            {
+                string status = row.Cells[3].Value.ToString();
+                if (status == "Connected")
+                {                 
+                    row.Cells[3].Style = style;            
+                }
+                else
+                {
+                    row.Cells[3].Style = style2;
+                }
+            }
         }
     }
 }

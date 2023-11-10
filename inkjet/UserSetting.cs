@@ -67,45 +67,11 @@ namespace inkjet
             _instance = this;
             ucUser uc = new ucUser();
             addUserControl(uc);
-        }
-
-        private void get_user_operator()
-        {
-            var records = new List<User>();
-            User usr = new User();
-            using (var reader = new StreamReader(path_user))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                //var records = new List<User>();
-                csv.Read();
-                csv.ReadHeader();
-
-                while (csv.Read())
-                {
-                    var record = new User
-                    {
-                        UserId = csv.GetField<int>("User ID"),
-                        UserName = csv.GetField("User Name"),
-                        UserPassword = csv.GetField("User Password"),
-                        UserRole = csv.GetField("User Role"),
-                        UserNameOp = csv.GetField("User Name Operator"),
-                        UserPasswordOp = csv.GetField("User Password Operator"),
-                    };
-
-                    if (User.getUser() == record.UserName)
-                    {
-                        usr.setUserNameOp(record.UserNameOp);
-                        usr.setUserPasswordOp(record.UserPasswordOp);
-                        Console.WriteLine(record.UserNameOp);
-                    }
-                }
-
-
-            }
-        }
+        }    
+        
         private void UserSetting_Load(object sender, EventArgs e)
         {
-            get_user_operator();
+            //get_user_operator();
             _instance = this;
             ucEmail uc = new ucEmail();
             addUserControl(uc);

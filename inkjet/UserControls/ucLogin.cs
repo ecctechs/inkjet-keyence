@@ -16,15 +16,9 @@ namespace inkjet.UserControls
 {
     public partial class ucLogin : UserControl
     {
-        string path_user = "C:\\Users\\ADMIN\\Desktop\\test\\user.csv";
         public ucLogin()
         {
             InitializeComponent();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -47,16 +41,8 @@ namespace inkjet.UserControls
 
         private void get_user()
         {
-            using var reader = new StreamReader(path_user);
-            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            List<User> _items = new List<User>();
 
-            var records = csv.GetRecords<User>();
-
-            foreach (var record in records)
-            {
-                _items.Add(new User { UserName = record.UserName, UserPassword = record.UserPassword, UserRole = record.UserRole, UserNameOp = record.UserNameOp, UserPasswordOp = record.UserPasswordOp });
-            }
+            List<User> _items = User.ListUser();
 
             for (int i = 0; i < _items.Count; i++)
             {

@@ -41,9 +41,10 @@
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtInkjetName = new System.Windows.Forms.TextBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.txtEditID = new System.Windows.Forms.TextBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -234,10 +235,6 @@
             this.txtInkjetName.Size = new System.Drawing.Size(342, 28);
             this.txtInkjetName.TabIndex = 30;
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(inkjet.Class.Inkjet);
-            // 
             // txtEditID
             // 
             this.txtEditID.Location = new System.Drawing.Point(61, 228);
@@ -249,13 +246,27 @@
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.TargetControl = this.panel1;
             this.guna2DragControl1.UseTransparentDrag = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(511, 296);
+            this.panel1.TabIndex = 32;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(inkjet.Class.Inkjet);
             // 
             // AddEditConnection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(511, 296);
             this.Controls.Add(this.txtEditID);
             this.Controls.Add(this.txtInkjetName);
@@ -270,7 +281,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddEditConnection";
@@ -300,5 +313,6 @@
         private System.Windows.Forms.TextBox txtInkjetName;
         private System.Windows.Forms.TextBox txtEditID;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

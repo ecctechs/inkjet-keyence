@@ -55,127 +55,38 @@ namespace inkjet
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            List<Inkjet> list_inkjet = new List<Inkjet>();
             //Console.WriteLine(id_edit);
             if (txtIP1.Text.Trim() != "" && txtIP2.Text.Trim() != "" && txtIP3.Text.Trim() != "" && txtIP4.Text.Trim() != ""
                 && txtIP1.Text.Length == 3 && txtIP2.Text.Length == 3 && txtIP3.Text.Length == 1 && txtIP4.Text.Length == 1)
             {
-                var chk_duplicate = true;
                 var full_ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text;
-                //Console.WriteLine(full_ip);
-                //Console.WriteLine(txtIP1.Text);
+                var chk_duplicate = Inkjet.Duplicate_Inkjet(full_ip, txtEditID.Text);
+                //Console.WriteLine(chk_duplicate);
 
-                List<Inkjet> records;
-
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                if (chk_duplicate == true && txtEditID.Text == "") //ถ้าไม่มีซํ้า และ ไม่มี id เก่า ให้ add ใหม่
                 {
-                    records = csv.GetRecords<Inkjet>().ToList();
-
-                    for (int i = 0; i < records.Count; i++)
-                    {
-                        if (records[i].IPAdress == full_ip && txtEditID.Text == "" )
-                        {
-                            chk_duplicate = false;
-                            break;
-                        }
-                        else
-                        {
-                            chk_duplicate = true;
-                        }
-                    }
-
-                    for (int i = 0; i < records.Count; i++)
-                    {
-
-                        if (records[i].IPAdress == full_ip && records[i].InkJetID.ToString() != txtEditID.Text)
-                        {
-                            chk_duplicate = false;
-                            //MetroFramework.MetroMessageBox.Show(this, "Data is Already Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            break;
-                        }
-                        else
-                        {
-                            chk_duplicate = true;
-                        }
-                        //Console.WriteLine(records[i].IPAdress + "==" + full_ip + "&&" + txtEditID.Text + "!=" + records[i].InkJetID);
-                    }
+                    list_inkjet.Add(new Inkjet{ InkJetID = Inkjet.running_id , InkJetName = txtInkjetName.Text, IPAdress = full_ip});
+                    Inkjet.Add_Inkjet(list_inkjet);                    
+                    DialogResult = DialogResult.OK;
+                    //MessageBox.Show(this, "Add Data Success");
                 }
-                int running_id;
-                if (records.Count > 0)
+
+                else if (chk_duplicate == true && txtEditID.Text != null) //ถ้าไม่มีซํ้า และ มี id เก่า ให้ไป update อันเดิม
                 {
-                    var lastItem = records.LastOrDefault();
-                    running_id = lastItem.InkJetID + 1;
-                }
-                else
-                    running_id = 1;
-
-                Console.WriteLine(chk_duplicate);
-                if (chk_duplicate == true)
-                {
-                    if (txtEditID.Text == "")
+                    List<Inkjet> inkjet_list = Inkjet.ListInkjet();
+                    for (int i = 0; i < inkjet_list.Count; i++)
                     {
-                        var records_add = new List<Inkjet>
-                    {
-                    new Inkjet { InkJetID = running_id, InkJetName = txtInkjetName.Text , IPAdress = full_ip},
-                     };
-                        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                        if (txtEditID.Text == inkjet_list[i].InkJetID.ToString())
                         {
-                            // Don't write the header again.
-                            HasHeaderRecord = false,
-                        };
-                        using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\inkjet.csv", FileMode.Append))
-                        using (var writer = new StreamWriter(stream))
-                        using (var csv = new CsvWriter(writer, config))
-                        {
-                            csv.WriteRecords(records_add);
+                            inkjet_list[i].InkJetID = Convert.ToInt32(txtEditID.Text);
+                            inkjet_list[i].InkJetName = txtInkjetName.Text;
+                            inkjet_list[i].IPAdress = full_ip;
                         }
-                        DialogResult = DialogResult.OK;
+                        Inkjet.Update_Inkjet(inkjet_list);    
                     }
-                    else
-                    {
-                        var record_edit = new List<Inkjet>();
-                        using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-                        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                        {
-                            //var records = new List<User>();
-                            csv.Read();
-                            csv.ReadHeader();
-
-                            while (csv.Read())
-                            {
-                                var record = new Inkjet
-                                {
-                                    InkJetID = csv.GetField<int>("InkJet ID"),
-                                    InkJetName = csv.GetField("InkJet Name"),
-                                    IPAdress = csv.GetField("IP Address"),
-                                    Status = csv.GetField("Status"),
-                                    Status_inkjet = csv.GetField("Status_inkjet"),
-                                    Ink = csv.GetField("Ink"),
-                                    Solvent = csv.GetField("Solvent"),
-                                    Pump = csv.GetField("Pump"),
-                                    Filter = csv.GetField("Filter"),
-                                    Program = csv.GetField("Program"),
-                                };
-                                Console.WriteLine(record.InkJetID);
-
-                                if (txtEditID.Text == record.InkJetID.ToString())
-                                {
-                                    record.InkJetID = Convert.ToInt32(txtEditID.Text);
-                                    record.InkJetName = txtInkjetName.Text;
-                                    record.IPAdress = full_ip;
-                                }
-                                record_edit.Add(record);
-                            }
-
-                        }
-                        using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
-                        using (var csv2 = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                        {
-                            csv2.WriteRecords(record_edit);
-                        }
-                        this.Close();
-                        DialogResult = DialogResult.OK;
-                    }
+                    DialogResult = DialogResult.OK;
+                    //MessageBox.Show(this, "Update Data Success");
                 }
                 else
                 {
@@ -185,7 +96,7 @@ namespace inkjet
             else
             {
                 MessageBox.Show(this, "Please Fill All Data");
-            }
+            }  
         }
 
         private void txtIP1_KeyPress(object sender, KeyPressEventArgs e)
