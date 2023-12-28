@@ -51,16 +51,18 @@ namespace inkjet.UserControls
 
         private void ucData_Load(object sender, EventArgs e)
         {
+            mtDateStart.Value = DateTime.Now;
+            mtDateEnd.Value = DateTime.Now;
             getShift_DropDown();
             getInkJet_DropDown();
             getDatalog_Data(mtDateStart.Value, mtDateEnd.Value, "All", "All");
+            InitTimer();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var Shift_selected = mcbShift.Text;
             var Inkjet = mcbInkjet.Text;
-            Console.WriteLine(Shift_selected);
 
             getDatalog_Data(mtDateStart.Value, mtDateEnd.Value, Shift_selected, Inkjet);
         }
@@ -87,6 +89,26 @@ namespace inkjet.UserControls
                     MessageBox.Show(this, "Your data has been successfully export.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        static System.Windows.Forms.Timer myTimer_data = new System.Windows.Forms.Timer();
+        public void InitTimer()
+        {
+            myTimer_data = new System.Windows.Forms.Timer();
+            myTimer_data.Tick += new EventHandler(TimerEventProcessor);
+
+            // Sets the timer interval to 5 seconds.
+            myTimer_data.Interval = 5000;
+            myTimer_data.Stop();
+            myTimer_data.Start();
+        }
+
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
+        {
+            var Shift_selected = mcbShift.Text;
+            var Inkjet = mcbInkjet.Text;
+
+            getDatalog_Data(mtDateStart.Value, mtDateEnd.Value, Shift_selected, Inkjet);
         }
     }
 }

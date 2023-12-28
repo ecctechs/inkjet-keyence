@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1500, 99);
+            this.panel1.Size = new System.Drawing.Size(1902, 99);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -74,7 +74,7 @@
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.cbxMake);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1302, 0);
+            this.panel2.Location = new System.Drawing.Point(1704, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(98, 99);
             this.panel2.TabIndex = 0;
@@ -114,7 +114,7 @@
             // 
             this.txtUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserInfo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserInfo.Location = new System.Drawing.Point(1015, 41);
+            this.txtUserInfo.Location = new System.Drawing.Point(1417, 41);
             this.txtUserInfo.Name = "txtUserInfo";
             this.txtUserInfo.Size = new System.Drawing.Size(234, 23);
             this.txtUserInfo.TabIndex = 9;
@@ -125,7 +125,7 @@
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox3.Image = global::inkjet.Properties.Resources.รูปภาพ3;
-            this.pictureBox3.Location = new System.Drawing.Point(1400, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(1802, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 99);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -266,7 +266,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 149);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1500, 728);
+            this.panelContainer.Size = new System.Drawing.Size(1902, 884);
             this.panelContainer.TabIndex = 2;
             // 
             // pictureBox1
@@ -276,7 +276,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 99);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1500, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(1902, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -286,7 +286,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1500, 877);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);

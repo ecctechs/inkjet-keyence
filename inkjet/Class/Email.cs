@@ -20,14 +20,20 @@ namespace inkjet.Class
         [Name(name: "Email")]
         public string EmailName { get; set; }
 
+        [Name(name: "ErrorID")]
+        public int ErrorID { get; set; }
+
+        [Name(name: "ErrorID2")]
+        public bool ErrorID2 { get; set; }
+
         public static int running_id;
         public static List<Email> ListEmail()
         {
             List<Email> list_email = new List<Email>();
-
+            var records = new List<Email>().ToList() ;
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\email.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_email = csv.GetRecords<Email>().ToList();
@@ -36,10 +42,23 @@ namespace inkjet.Class
                         var lastItem = list_email.LastOrDefault();
                         running_id = lastItem.EmailNo + 1;
                     }
-                    else 
+                    else
                     {
                         running_id = 1;
                     }
+
+                    //csv.Read();
+                    //csv.ReadHeader();
+                    //while (csv.Read())
+                    //{
+                    //    var record = new Email
+                    //    {
+                    //        EmailNo = csv.GetField<int>("No"),
+                    //        EmailName = csv.GetField("Email")
+                    //    };
+                    //    records.Add(record);
+
+                    //}
                 }
             }
             catch (Exception e)
@@ -59,7 +78,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\email.csv", FileMode.Append))
+                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\email.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -69,7 +88,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 
@@ -79,7 +98,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\email.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_email = csv.GetRecords<Email>().ToList();
@@ -95,7 +114,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_email;
         }
@@ -104,7 +123,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\email.csv"))
+                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -113,7 +132,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 
@@ -124,7 +143,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\email.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 list_email = csv.GetRecords<Email>().ToList();
@@ -153,9 +172,16 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return chk_duplicate;
+        }
+
+        public class alarm
+        {
+            public int ID { get; set; }
+
+            public string Name { get; set; }
         }
     }
 }

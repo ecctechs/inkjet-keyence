@@ -79,9 +79,28 @@ namespace inkjet.UserControls
                     item.guna2GradientPanel1.FillColor2 = Color.Salmon;
                     item.guna2GradientPanel1.BorderColor = Color.DarkRed;
                 }
+                else if (records[i].Status_inkjet == "Disconnect")
+                {
+                    item.guna2GradientPanel1.FillColor = Color.LightGray;
+                    item.guna2GradientPanel1.FillColor2 = Color.LightGray;
+                    item.guna2GradientPanel1.BorderColor = Color.Gray;
+                }
+                else if (records[i].Status_inkjet == "Starting" || records[i].Status_inkjet == "Shutting Down")
+                {
+                    item.guna2GradientPanel1.FillColor = Color.LightGoldenrodYellow;
+                    item.guna2GradientPanel1.FillColor2 = Color.LightGoldenrodYellow;
+                    item.guna2GradientPanel1.BorderColor = Color.Yellow;
+                }
+                else if (records[i].Status_inkjet == "Suspended" || records[i].Status_inkjet == "Suspended")
+                {
+                    item.guna2GradientPanel1.FillColor = Color.LightGray;
+                    item.guna2GradientPanel1.FillColor2 = Color.LightGray;
+                    item.guna2GradientPanel1.BorderColor = Color.Gray;
+                }
 
                 flowLayoutPanel1.Controls.Add(item);
                 
+
                 //panel1.Dock = DockStyle.Fill;
                 //panel1.Controls.Clear();
                 //panel1.Controls.Add(item);

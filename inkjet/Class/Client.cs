@@ -23,13 +23,15 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Linq.Expressions;
 using CsvHelper.Configuration;
 using System.Linq.Dynamic;
-
+using System.Drawing;
+using inkjet.UserControls;
 
 namespace client
 {
     public class Program
     {
         private static string old_programs = "";
+        private static string old_status = "";
 
         public void set_programs(String name)
         {
@@ -40,21 +42,28 @@ namespace client
             return old_programs;
         }
 
+        public void set_status(String name)
+        {
+            old_status = name;
+        }
+        public static string get_status()
+        {
+            return old_status;
+        }
+
         public void Execute_Client()
         {          
             ExecuteClient();
         }
 
-        public async void ExecuteClient()
+        public void ExecuteClient()
         {
- 
             List<Error> records_error = new List<Error>();
             List<Inkjet> records_update = new List<Inkjet>();
             List<Datalog> records_datalog = new List<Datalog>();
             string new_status;
 
             List<Inkjet> records = Inkjet.ListInkjet();
-            //List<Inkjet> records = inkjet_list;
             for (int y = 0; y < records.Count; ++y)
             {
                 try
@@ -126,93 +135,126 @@ namespace client
                             var respone_error = Encoding.ASCII.GetString(messageReceived_error, 0, byteRecv_error);
                             var respone_error_list = respone_error.Split(',').ToList();
 
-                            string ink_status = "";
-                            string solvent_status = "";
-                            string pump_status = "";
-                            string filter_status = "";
-                   
-                            for (int i = 1; i < respone_error_list.Count; i++)
+                            //Console.WriteLine("--------------------------------" + respone_error_list[0]);
+                            string ink_status = "Normal";
+                            string solvent_status = "Normal";
+                            string pump_status = "Normal";
+                            string filter_status = "Normal";                         
+
+                                for (int i = 1; i < respone_error_list.Count; i++)
+                                {
+                                    var date_error = DateTime.Now.ToString("d/M/yyyy");
+                                    var time_error = DateTime.Now.ToString("HH:mm");
+                                    int Error_Code = Int32.Parse(respone_error_list[i]);
+                                    //int Error_Code = Int32.Parse("102");
+                                    string shift_text = Shift.Update_Shift(time_error);
+                                    List<Error> error_detail = ListError.Update_ErrorDetail(Error_Code);      
+
+                                records_error.Add(new Error { InkJet = records[y].InkJetName, ErrorType = error_detail[0].ErrorType, ErrorCode = Error_Code, Detail = error_detail[0].Detail, Date = date_error, Time = time_error, Shift = shift_text, InKLevel = error_detail[0].InKLevel, SolventLevel = error_detail[0].SolventLevel, PumpLifetime = error_detail[0].PumpLifetime, FilterLifetime = error_detail[0].FilterLifetime, Status = "0" });
+                                }
+
+                            var real_status = (respone_status == "SB,01\r") ? "Printable" : "Stopped";             
+
+                            string code_status = "";
+
+                            if (records_error.Count > 0)
                             {
-                                if (respone_error_list[i] == "101")
+                                if (Int32.Parse(respone_error_list[1]) <= 99)
                                 {
-                                    ink_status = "Empty";
-                                }
-                                else if (respone_error_list[i] == "140")
-                                {
-                                    ink_status = "Low";
+                                    code_status = "Error";
                                 }
                                 else
                                 {
-                                    ink_status = "Normal";
+                                    code_status = "Warning";
                                 }
-
-                                if (respone_error_list[i] == "102")
-                                {
-                                    solvent_status = "Empty";
-                                }
-                                else if (respone_error_list[i] == "141")
-                                {
-                                    solvent_status = "Low";
-                                }
-                                else
-                                {
-                                    solvent_status = "Normal";
-                                }
-
-                                if (respone_error_list[i] == "25")
-                                {
-                                    pump_status = "Error";
-                                }
-                                else if (respone_error_list[i] == "117")
-                                {
-                                    pump_status = "Warning";
-                                }
-                                else
-                                {
-                                    pump_status = "Normal";
-                                }
-
-                                if (respone_error_list[i] == "32" || respone_error_list[i] == "34")
-                                {
-                                    filter_status = "Error";
-                                }
-                                else if (respone_error_list[i] == "129" || respone_error_list[i] == "131")
-                                {
-                                    filter_status = "Warning";
-                                }
-                                else
-                                {
-                                    filter_status = "Normal";
-                                }
-                                var date_error = DateTime.Now.ToString("d/M/yyyy");
-                                var time_error = DateTime.Now.ToString("HH:mm");
-                                int Error_Code = Int32.Parse(respone_error_list[i]);
-                                string shift_text = Shift.Update_Shift(time_error);
-                                
-                                records_error.Add(new Error { InkJet = records[y].InkJetName, ErrorType = "Error", ErrorCode = Error_Code, Detail = respone_error_list[i], Date = date_error, Time = time_error, Shift = shift_text, InKLevel = "InKLevel", SolventLevel = solvent_status, PumpLifetime = pump_status, FilterLifetime = filter_status, Status = "0" });                             
+                            }
+                            else if (respone_status == "SB,04\r")
+                            {
+                                code_status = "Suspended";
+                            }
+                            else if (respone_status == "SB,05\r")
+                            {
+                                code_status = "Starting";
+                            }
+                            else if (respone_status == "SB,06\r")
+                            {
+                                code_status = "Shutting Down";
+                            }
+                            else if (respone_status == "SB,01\r")
+                            {
+                                code_status = "Printable";
+                            }
+                            else
+                            {
+                                code_status = "Stopped";
                             }
 
-                            if (respone_error_list.Count == 1)
+                            if (respone_programs_list[3] != get_programs() && get_programs() != "" && real_status == "Printable")
                             {
-                                ink_status = "Normal";
-                                solvent_status = "Normal";
-                                pump_status = "Normal";
-                                filter_status = "Normal";
-                            }
+                                byte[] messageSent_qty = Encoding.ASCII.GetBytes("KH,3\r");
+                                int byteSent_qty = sender.Send(messageSent_qty);
+                                byte[] messageReceived_qty_current = new byte[1024];
+                                int byteRecv_qty_current = sender.Receive(messageReceived_qty_current);
+                                var respone_qty_current = Encoding.ASCII.GetString(messageReceived_qty_current, 0, byteRecv_qty_current);
+                                var respone_qty_current_number = respone_qty_current.Split(',').ToList();
 
-                            if (respone_programs_list[3] != get_programs() && get_programs() != "")
-                            {
                                 var date_log = DateTime.Now.ToString("d/M/yyyy HH:mm");
                                 string shift_text = Shift.Update_Shift(date_log);
                                 //var date_now = DateTime.Now.ToString("d/M/yyyy HH:mm");
                                 Console.WriteLine("Change!!!");
-                                records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "99999" , DateStart = date_log, DateEnd = date_log, Shift = shift_text });
+
+                                records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "777", DateStart = date_log, DateEnd = date_log, Shift = shift_text , qty_end = respone_qty_current_number[2] });
+                                Update_Datalog(records_datalog);
+
+                                records_datalog.Clear();
+                                records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = respone_programs_list[3], Qty = "", DateStart = date_log, DateEnd = "", Shift = shift_text , qty_start = respone_qty_current_number[2] });
+                                Datalog.Add_DataLog(records_datalog);
+
+                                //records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "777", DateStart = date_log, DateEnd = date_log, Shift = shift_text });
+                                //Update_Datalog(records_datalog);
+                            }
+                         
+
+
+                         
+
+
+                            if (get_status() == "Stopped" && real_status == "Printable")
+                            {
+                                byte[] messageSent_qty = Encoding.ASCII.GetBytes("KH,3\r");
+                                int byteSent_qty = sender.Send(messageSent_qty);
+                                byte[] messageReceived_qty_current = new byte[1024];
+                                int byteRecv_qty_current = sender.Receive(messageReceived_qty_current);
+                                var respone_qty_current = Encoding.ASCII.GetString(messageReceived_qty_current, 0, byteRecv_qty_current);
+                                var respone_qty_current_number = respone_qty_current.Split(',').ToList();
+
+
+                                var date_log = DateTime.Now.ToString("d/M/yyyy HH:mm");
+                                string shift_text = Shift.Update_Shift(date_log);
+                                records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "", DateStart = date_log, DateEnd = "", Shift = shift_text , qty_start = respone_qty_current_number[2] });
                                 Datalog.Add_DataLog(records_datalog);
                             }
+                           
+                            //Console.WriteLine(get_status());
+                            //Console.WriteLine(real_status);
+                            if (get_status() == "Printable" && real_status == "Stopped")
+                            {
+                                byte[] messageSent_qty = Encoding.ASCII.GetBytes("KH,3\r");
+                                int byteSent_qty = sender.Send(messageSent_qty);
+                                byte[] messageReceived_qty_current = new byte[1024];
+                                int byteRecv_qty_current = sender.Receive(messageReceived_qty_current);
+                                var respone_qty_current = Encoding.ASCII.GetString(messageReceived_qty_current, 0, byteRecv_qty_current);
+                                var respone_qty_current_number = respone_qty_current.Split(',').ToList();
 
-                            
+
+                                var date_log = DateTime.Now.ToString("d/M/yyyy HH:mm");
+                                string shift_text = Shift.Update_Shift(date_log);                               
+                                records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "", DateStart = date_log, DateEnd = date_log, Shift = shift_text ,qty_end = respone_qty_current_number[2] });
+                                Update_Datalog(records_datalog);
+                            }
+
                             new_status = "Connected";
-                            records_update.Add(new Inkjet { IPAdress = input, Status = new_status ,Status_inkjet = respone_status ,Program = respone_programs_list[3] , Ink = ink_status , Solvent = solvent_status , Pump = pump_status , Filter = filter_status });
+                            records_update.Add(new Inkjet { IPAdress = input, Status = new_status ,Status_inkjet = code_status, Program = respone_programs_list[3] , Ink = ink_status , Solvent = solvent_status , Pump = pump_status , Filter = filter_status });
 
                             //Console.WriteLine("Message from Server -> {0}",
                             //      Encoding.ASCII.GetString(messageReceived,
@@ -220,8 +262,9 @@ namespace client
                            
 
                             set_programs(respone_programs_list[3]);
+                            set_status(real_status);
 
-                          
+
                             //Close Socket using
                             //the method Close()
                             sender.Shutdown(SocketShutdown.Both);
@@ -266,8 +309,8 @@ namespace client
         }
         public static void UpdateInkjetStatus(List<Inkjet> p) 
         {
-            //List<Inkjet> records = inkjet_list;
             List<Inkjet> records = Inkjet.ListInkjet();
+
 
             for (int i = 0; i < p.Count; ++i)
                 {
@@ -275,10 +318,29 @@ namespace client
                     {
                         if (p[i].Status != records[i].Status)
                         {
-                            SendEmail(records[i].IPAdress, "Connected");
+                            //SendEmail(records[i].IPAdress, "Connected");
                         }
                         records[i].Status = "Connected";
-                        records[i].Status_inkjet = (p[i].Status_inkjet == "SB,01\r") ? "Printable" : "Stopped";
+
+                    //Console.WriteLine("------------->>>>"+p[i].Status_inkjet);
+                    //if (p[i].Status_inkjet == "SB,05\r")
+                    //{
+                    //    records[i].Status_inkjet = "Starting";
+                    //}
+                    //else if(p[i].Status_inkjet == "SB,06\r")
+                    //{
+                    //    records[i].Status_inkjet = "Shutting Down";
+                    //}
+                    //else if (p[i].Status_inkjet == "SB,01\r")
+                    //{
+                    //    records[i].Status_inkjet = "Printable";
+                    //}
+                    //else
+                    //{
+                    //    records[i].Status_inkjet = "Stopped";
+                    //}
+                    //records[i].Status_inkjet = (p[i].Status_inkjet == "SB,01\r") ? "Printable" : "Stopped";
+                    records[i].Status_inkjet = p[i].Status_inkjet;
                         records[i].Program = p[i].Program;
                         records[i].Ink = p[i].Ink;
                         records[i].Solvent = p[i].Solvent;
@@ -290,15 +352,16 @@ namespace client
                     {
                         if (p[i].Status != records[i].Status)
                         {
-                            SendEmail(records[i].IPAdress, "Not Connected");
+                            //SendEmail(records[i].IPAdress, "Not Connected");
                         }
                         records[i].Status = "Not Connected";
-                        records[i].Status_inkjet = p[i].Status_inkjet;
+                    //records[i].Status_inkjet = p[i].Status_inkjet;
+                        records[i].Status_inkjet = "Disconnect";
                         records[i].Program = p[i].Program;
-                        records[i].Ink = "";
-                        records[i].Solvent = "";
-                        records[i].Pump = "";
-                        records[i].Filter = "";
+                        records[i].Ink = "Disconnect";
+                        records[i].Solvent = "Disconnect";
+                        records[i].Pump = "Disconnect";
+                        records[i].Filter = "Disconnect";
                     }
                                     
                         records[i].InkJetID = records[i].InkJetID;
@@ -366,9 +429,19 @@ namespace client
             }
             Error.Update_Error(records);
             Error.Add_Error(p);
+
+           
+            if(p.Count > 0)
+            {
+                for(int i = 0; i < p.Count; i++)
+                {
+                    SendEmail(p[i].InkJet, p[i].ErrorType, p[i].ErrorCode, p[i].Detail, p[i].Date , p[i].Time );
+
+                }   
+            }
         }
 
-        public static void SendEmail(string ip,string status)
+        public static void SendEmail(string inkjetname,string type , int code, string detail_error , string date_error , string time_error)
         {
             List<Email> emails = Email.ListEmail();
 
@@ -376,14 +449,92 @@ namespace client
             {
                 for (int i = 0; i < emails.Count; i++)
                 {
-                    send_email.Send_Email email = new send_email.Send_Email();
-                    //string name = "theerasak789900@gmail.com";
-                    string name = emails[i].EmailName;
-                    string subject = "Inkjet " + ip + "Status";
-                    string detail = status;
-                    email.send(name, subject, detail);
+                    //if (emails[i].ErrorID == 1 )
+                    //{
+                    //    send_email.Send_Email email = new send_email.Send_Email();
+                    //    //string name = "theerasak789900@gmail.com";
+                    //    string name = emails[i].EmailName;
+                    //    string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
+                    //    string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                    //    email.send(name, subject, detail);
+                    //}
+                    //else if (emails[i].ErrorID == 2 && code <= 99)
+                    //{
+                    //    send_email.Send_Email email = new send_email.Send_Email();
+                    //    //string name = "theerasak789900@gmail.com";
+                    //    string name = emails[i].EmailName;
+                    //    string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
+                    //    string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                    //    email.send(name, subject, detail);
+                    //}
+                    //else if (emails[i].ErrorID == 3 && code >= 100)
+                    //{
+                    //    send_email.Send_Email email = new send_email.Send_Email();
+                    //    //string name = "theerasak789900@gmail.com";
+                    //    string name = emails[i].EmailName;
+                    //    string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
+                    //    string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                    //    email.send(name, subject, detail);
+                    //}
+                    if (emails[i].ErrorID2 == false)
+                    {
+                        send_email.Send_Email email = new send_email.Send_Email();
+                        //string name = "theerasak789900@gmail.com";
+                        string name = emails[i].EmailName;
+                        string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
+                        string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                        email.send(name, subject, detail);
+                    }
+                    else if (emails[i].ErrorID2 == true && code <= 99)
+                    {
+                        send_email.Send_Email email = new send_email.Send_Email();
+                        //string name = "theerasak789900@gmail.com";
+                        string name = emails[i].EmailName;
+                        string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
+                        string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                        email.send(name, subject, detail);
+                    }
                 }
             }
+        }
+
+        public static void Update_Datalog(List<Datalog> records)
+        {
+            Console.WriteLine("UPDATEEEEEEEEEEE");
+            List<Datalog> all_datalog = Datalog.ListDatalog();
+            List<Datalog> update_data = new List<Datalog>();
+             
+            for (int i = 0; i < all_datalog.Count; ++i)
+            {
+                if (all_datalog[i].InkJet == records[0].InkJet && all_datalog[i].Program == records[0].Program && all_datalog[i].Qty == "" && all_datalog[i].DateEnd == "")
+                {
+                    int diff_qty = Int32.Parse(records[0].qty_end) - Int32.Parse(all_datalog[i].qty_start);
+                    string diff_qty_convert = diff_qty.ToString();
+                    all_datalog[i].Qty = diff_qty_convert;
+                    all_datalog[i].Program = records[0].Program;
+                    all_datalog[i].DateEnd = records[0].DateEnd;
+                    all_datalog[i].InkJet = records[0].InkJet;
+                    all_datalog[i].DateStart = all_datalog[i].DateStart;
+                    all_datalog[i].Shift = records[0].Shift;
+                    all_datalog[i].qty_end = records[0].qty_end;
+
+                    if (diff_qty == 0)
+                    {
+                        all_datalog.RemoveAt(i);
+                    }
+
+                }
+                else
+                {
+                    all_datalog[i].Qty = all_datalog[i].Qty;
+                    all_datalog[i].Program = all_datalog[i].Program;
+                    all_datalog[i].DateEnd = all_datalog[i].DateEnd;
+                    all_datalog[i].InkJet = all_datalog[i].InkJet;
+                    all_datalog[i].DateStart = all_datalog[i].DateStart;
+                    all_datalog[i].Shift = all_datalog[i].Shift;
+                }
+            }
+            Datalog.Update_Datalog(all_datalog);
         }
     }
 }

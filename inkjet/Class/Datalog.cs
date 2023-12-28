@@ -33,6 +33,32 @@ namespace inkjet.Class
         [Name(name: "Shift")]
         public string Shift { get; set; }
 
+        [Name(name: "qty_start")]
+        public string qty_start { get; set; }
+
+        [Name(name: "qty_end")]
+        public string qty_end { get; set; }
+
+        public static List<Datalog> ListDatalog()
+        {
+            List<Datalog> list_datalog = new List<Datalog>();
+
+            try
+            {
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\data_log.csv"))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    list_datalog = csv.GetRecords<Datalog>().ToList();                   
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                //MessageBox.Show(e.ToString());
+            }
+            return list_datalog;
+        }
+
         public static List<Datalog> ListData_Search(DateTime dateStart, DateTime DateEnd, string Shift, string inkjet)
         {
 
@@ -40,7 +66,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\data_log.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\data_log.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                 
@@ -57,6 +83,8 @@ namespace inkjet.Class
                         DateStart = csv.GetField<string>("DateTime Start"),
                         DateEnd = csv.GetField<string>("DateTime End / Last Updated"),
                         Shift = csv.GetField("Shift"),
+                        qty_start = csv.GetField("qty_start"),
+                        qty_end = csv.GetField("qty_end"),
                     };
                         //Console.WriteLine(record.DateStart);
                         var convert_date2 = DateTime.Parse(record.DateStart);
@@ -93,7 +121,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_data_query;
         }
@@ -107,7 +135,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\data_log.csv", FileMode.Append))
+                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\data_log.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -117,7 +145,24 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static void Update_Datalog(List<Datalog> records)
+        {
+            try
+            {
+                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\data_log.csv"))
+                using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvWriter.WriteRecords(records);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 

@@ -40,7 +40,7 @@ namespace inkjet.Class
             
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\shift.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_shift = csv.GetRecords<Shift>().ToList();
@@ -58,7 +58,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_shift;
         }
@@ -72,7 +72,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\Shift.csv", FileMode.Append))
+                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\shift.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -82,7 +82,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 
@@ -92,7 +92,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\shift.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_shift = csv.GetRecords<Shift>().ToList();
@@ -108,7 +108,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }           
             return list_shift;
         }
@@ -117,7 +117,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\shift.csv"))
+                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -126,7 +126,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
         public static bool Duplicate_Shift(string input_shift_name,string input_shift_time)
@@ -136,7 +136,7 @@ namespace inkjet.Class
 
             try
             {
-            using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\shift.csv"))
+            using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 list_shift = csv.GetRecords<Shift>().ToList();
@@ -146,40 +146,25 @@ namespace inkjet.Class
                     chk_duplicate = true;
                 }
 
-                for (int i = 0; i < list_shift.Count; ++i)
-                {
-                    if (list_shift[i].ShiftName != input_shift_name && list_shift[i].Start != input_shift_time)
+                    for (int i = 0; i < list_shift.Count; ++i)
                     {
-                        chk_duplicate = true;
-                        continue;
-                    }
-                    else
-                    {
-                        chk_duplicate = false;
-                        break;
+                        if (list_shift[i].ShiftName != input_shift_name && list_shift[i].Start != input_shift_time)
+                        {
+                            chk_duplicate = true;
+                            continue;
+                        }
+                        else
+                        {
+                            chk_duplicate = false;
+                            break;
+                        }
                     }
                 }
-
-                //for (int x = 0; x < list_shift.Count; ++x) 
-                //    {
-                //        if (list_shift[x].Start != input_shift_time)
-                //        {
-                //            chk_duplicate = true;
-                //            continue;
-                //        }
-                //        else
-                //        {
-                //            chk_duplicate = false;
-                //            break;
-                //        }
-                //    }
-
-            }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return chk_duplicate;
         }
@@ -193,7 +178,7 @@ namespace inkjet.Class
             List<string> end_shift = new List<string>();
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\shift.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
 
@@ -232,7 +217,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 

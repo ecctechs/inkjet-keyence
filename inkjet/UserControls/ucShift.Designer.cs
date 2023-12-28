@@ -39,13 +39,13 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.metroGrid1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txtShiftName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.DateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.shiftNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtShiftName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.DateTimeStart = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shiftBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -194,42 +194,6 @@
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // shiftNoDataGridViewTextBoxColumn
-            // 
-            this.shiftNoDataGridViewTextBoxColumn.DataPropertyName = "ShiftNo";
-            this.shiftNoDataGridViewTextBoxColumn.HeaderText = "No.";
-            this.shiftNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.shiftNoDataGridViewTextBoxColumn.Name = "shiftNoDataGridViewTextBoxColumn";
-            this.shiftNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shiftNameDataGridViewTextBoxColumn
-            // 
-            this.shiftNameDataGridViewTextBoxColumn.DataPropertyName = "ShiftName";
-            this.shiftNameDataGridViewTextBoxColumn.HeaderText = "ShiftName";
-            this.shiftNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.shiftNameDataGridViewTextBoxColumn.Name = "shiftNameDataGridViewTextBoxColumn";
-            this.shiftNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // startDataGridViewTextBoxColumn
-            // 
-            this.startDataGridViewTextBoxColumn.DataPropertyName = "Start";
-            this.startDataGridViewTextBoxColumn.HeaderText = "Start";
-            this.startDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startDataGridViewTextBoxColumn.Name = "startDataGridViewTextBoxColumn";
-            this.startDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // endDataGridViewTextBoxColumn
-            // 
-            this.endDataGridViewTextBoxColumn.DataPropertyName = "End";
-            this.endDataGridViewTextBoxColumn.HeaderText = "End";
-            this.endDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.endDataGridViewTextBoxColumn.Name = "endDataGridViewTextBoxColumn";
-            this.endDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shiftBindingSource
-            // 
-            this.shiftBindingSource.DataSource = typeof(inkjet.Class.Shift);
-            // 
             // txtShiftName
             // 
             this.txtShiftName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -258,8 +222,46 @@
             this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.DateTimeStart.Location = new System.Drawing.Point(175, 104);
             this.DateTimeStart.Name = "DateTimeStart";
-            this.DateTimeStart.Size = new System.Drawing.Size(107, 28);
+            this.DateTimeStart.ShowUpDown = true;
+            this.DateTimeStart.Size = new System.Drawing.Size(229, 28);
             this.DateTimeStart.TabIndex = 35;
+            // 
+            // shiftNoDataGridViewTextBoxColumn
+            // 
+            this.shiftNoDataGridViewTextBoxColumn.DataPropertyName = "ShiftNo";
+            this.shiftNoDataGridViewTextBoxColumn.HeaderText = "No.";
+            this.shiftNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.shiftNoDataGridViewTextBoxColumn.Name = "shiftNoDataGridViewTextBoxColumn";
+            this.shiftNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.shiftNoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // shiftNameDataGridViewTextBoxColumn
+            // 
+            this.shiftNameDataGridViewTextBoxColumn.DataPropertyName = "ShiftName";
+            this.shiftNameDataGridViewTextBoxColumn.HeaderText = "ShiftName";
+            this.shiftNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.shiftNameDataGridViewTextBoxColumn.Name = "shiftNameDataGridViewTextBoxColumn";
+            this.shiftNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // startDataGridViewTextBoxColumn
+            // 
+            this.startDataGridViewTextBoxColumn.DataPropertyName = "Start";
+            this.startDataGridViewTextBoxColumn.HeaderText = "Start";
+            this.startDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startDataGridViewTextBoxColumn.Name = "startDataGridViewTextBoxColumn";
+            this.startDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // endDataGridViewTextBoxColumn
+            // 
+            this.endDataGridViewTextBoxColumn.DataPropertyName = "End";
+            this.endDataGridViewTextBoxColumn.HeaderText = "End";
+            this.endDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.endDataGridViewTextBoxColumn.Name = "endDataGridViewTextBoxColumn";
+            this.endDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftBindingSource
+            // 
+            this.shiftBindingSource.DataSource = typeof(inkjet.Class.Shift);
             // 
             // ucShift
             // 
@@ -291,12 +293,12 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2DataGridView metroGrid1;
+        private System.Windows.Forms.BindingSource shiftBindingSource;
+        private Guna.UI2.WinForms.Guna2TextBox txtShiftName;
+        private System.Windows.Forms.DateTimePicker DateTimeStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn shiftNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shiftNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn startDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource shiftBindingSource;
-        private Guna.UI2.WinForms.Guna2TextBox txtShiftName;
-        private System.Windows.Forms.DateTimePicker DateTimeStart;
     }
 }

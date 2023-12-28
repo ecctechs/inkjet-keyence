@@ -60,8 +60,9 @@ namespace inkjet.UserControls
                     {
                         usr.setUserRole(_items[i].UserRole);
                     }
-                    ucOverview uc = new ucOverview();
+                    ucOverview uc = new ucOverview();   
                     frmMain.Instance.addUserControl(uc);
+                 
                 }
             }
         }

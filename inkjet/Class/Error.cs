@@ -62,7 +62,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\error2.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\error.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_error = csv.GetRecords<Error>().ToList();
@@ -71,7 +71,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_error;
         }
@@ -83,7 +83,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\error2.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\error.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     //var records = new List<Error>();
@@ -141,7 +141,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_error_query;
         }
@@ -150,7 +150,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\error2.csv"))
+                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\error.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -159,7 +159,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 
@@ -167,24 +167,22 @@ namespace inkjet.Class
         {
             try
             {
-               
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\error2.csv", FileMode.Append))
+                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\error.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {                   
                     csv.WriteRecords(records);
-                    
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 

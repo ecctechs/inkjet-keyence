@@ -101,7 +101,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\user.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\user.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_user = csv.GetRecords<User>().ToList();
@@ -127,7 +127,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\user.csv"))
+                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\user.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);

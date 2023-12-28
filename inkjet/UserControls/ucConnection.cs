@@ -30,11 +30,11 @@ namespace inkjet.UserControls
             // Sets the timer interval to 5 seconds.
             myTimer.Interval = 5000;
             myTimer.Stop();
-            myTimer.Start();            
+            myTimer.Start();
         }
         public ucConnection()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
 
         private void ucConnection_Load(object sender, EventArgs e)
@@ -54,9 +54,10 @@ namespace inkjet.UserControls
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            TimerClient.aTimer.Stop();
             var id = Convert.ToInt32(metroGrid1.Rows[metroGrid1.CurrentRow.Index].Cells[0].Value);
            
-            if (MessageBox.Show(this, "Yes/Cancel", "Delete Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Do you confirm to Delete the Inkjet ?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
             {
                 List<Inkjet> records = Inkjet.Delete_Inkjet(id);
                 Inkjet.Update_Inkjet(records);
@@ -65,10 +66,12 @@ namespace inkjet.UserControls
             get_Connection();
             Statu_Color();
             metroGrid1.Show();
+            TimerClient.aTimer.Start();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {            
+        {
+            TimerClient.aTimer.Stop();
             using (AddEditConnection frm = new AddEditConnection(new Inkjet()))
             {
                 //frm.ShowDialog();
@@ -78,12 +81,14 @@ namespace inkjet.UserControls
 
                     Statu_Color();
                     metroGrid1.Show();
+                    TimerClient.aTimer.Start();
                 }
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            TimerClient.aTimer.Stop();
             Inkjet obj = inkjetBindingSource.Current as Inkjet;
 
             if (obj != null)
@@ -96,6 +101,7 @@ namespace inkjet.UserControls
                         get_Connection();
                         Statu_Color();
                         metroGrid1.Show();
+                        TimerClient.aTimer.Start();
                     }
 
                     else 
@@ -103,6 +109,7 @@ namespace inkjet.UserControls
                         get_Connection();
                         Statu_Color();
                         metroGrid1.Show();
+                        TimerClient.aTimer.Start();
                     }
                 }
             }
@@ -114,6 +121,9 @@ namespace inkjet.UserControls
             Statu_Color();
             metroGrid1.Show();
         }
+
+  
+  
 
         public void Statu_Color()
         {

@@ -41,6 +41,8 @@
             this.emailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emailNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ErrorID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ErrorID2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -136,7 +138,9 @@
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.emailNoDataGridViewTextBoxColumn,
-            this.emailNameDataGridViewTextBoxColumn});
+            this.emailNameDataGridViewTextBoxColumn,
+            this.ErrorID,
+            this.ErrorID2});
             this.metroGrid1.DataSource = this.emailBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
@@ -150,7 +154,6 @@
             this.metroGrid1.Location = new System.Drawing.Point(20, 130);
             this.metroGrid1.MultiSelect = false;
             this.metroGrid1.Name = "metroGrid1";
-            this.metroGrid1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,7 +182,7 @@
             this.metroGrid1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.metroGrid1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.metroGrid1.ThemeStyle.HeaderStyle.Height = 50;
-            this.metroGrid1.ThemeStyle.ReadOnly = true;
+            this.metroGrid1.ThemeStyle.ReadOnly = false;
             this.metroGrid1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.Silver;
             this.metroGrid1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.metroGrid1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,6 +190,7 @@
             this.metroGrid1.ThemeStyle.RowsStyle.Height = 35;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.metroGrid1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellEndEdit);
             // 
             // emailBindingSource
             // 
@@ -194,26 +198,41 @@
             // 
             // emailNoDataGridViewTextBoxColumn
             // 
-            this.emailNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.emailNoDataGridViewTextBoxColumn.DataPropertyName = "EmailNo";
             this.emailNoDataGridViewTextBoxColumn.FillWeight = 106.9519F;
-            this.emailNoDataGridViewTextBoxColumn.HeaderText = "EmailNo";
+            this.emailNoDataGridViewTextBoxColumn.HeaderText = "No.";
             this.emailNoDataGridViewTextBoxColumn.MinimumWidth = 2;
             this.emailNoDataGridViewTextBoxColumn.Name = "emailNoDataGridViewTextBoxColumn";
             this.emailNoDataGridViewTextBoxColumn.ReadOnly = true;
             this.emailNoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.emailNoDataGridViewTextBoxColumn.Width = 104;
             // 
             // emailNameDataGridViewTextBoxColumn
             // 
             this.emailNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.emailNameDataGridViewTextBoxColumn.DataPropertyName = "EmailName";
             this.emailNameDataGridViewTextBoxColumn.FillWeight = 93.04813F;
-            this.emailNameDataGridViewTextBoxColumn.HeaderText = "EmailName";
+            this.emailNameDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailNameDataGridViewTextBoxColumn.Name = "emailNameDataGridViewTextBoxColumn";
             this.emailNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailNameDataGridViewTextBoxColumn.Width = 303;
+            this.emailNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // ErrorID
+            // 
+            this.ErrorID.DataPropertyName = "ErrorID";
+            this.ErrorID.HeaderText = "Alarm";
+            this.ErrorID.MinimumWidth = 6;
+            this.ErrorID.Name = "ErrorID";
+            this.ErrorID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ErrorID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ErrorID.Visible = false;
+            // 
+            // ErrorID2
+            // 
+            this.ErrorID2.DataPropertyName = "ErrorID2";
+            this.ErrorID2.HeaderText = "Only Error";
+            this.ErrorID2.MinimumWidth = 6;
+            this.ErrorID2.Name = "ErrorID2";
             // 
             // ucEmail
             // 
@@ -244,5 +263,7 @@
         private System.Windows.Forms.BindingSource emailBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ErrorID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ErrorID2;
     }
 }

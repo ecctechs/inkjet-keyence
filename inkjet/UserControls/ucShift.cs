@@ -30,13 +30,17 @@ namespace inkjet.UserControls
             metroGrid1.DefaultCellStyle.SelectionBackColor = Color.DarkOrange;
             metroGrid1.DefaultCellStyle.SelectionForeColor = Color.Black;
             get_shift();
+
+            DateTime dt = DateTimeStart.Value;
+            dt = dt.AddSeconds(-dt.Second);
+            DateTimeStart.Value = dt;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var id = Convert.ToInt32(metroGrid1.Rows[metroGrid1.CurrentRow.Index].Cells[0].Value);
 
-            if (MessageBox.Show(this, "Yes/Cancel", "Delete Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Do you confirm to Delete the Shift ?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
             {
                 List<Shift> records = Shift.Delete_Shift(id);
                 Shift.Update_Shift(records);
@@ -85,7 +89,7 @@ namespace inkjet.UserControls
             }
             else
             {
-                MessageBox.Show(this, "Please Fill All Data", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Shift cannot be blank", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }     
             get_shift();
             metroGrid1.Show();

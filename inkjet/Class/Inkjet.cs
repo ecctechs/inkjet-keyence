@@ -56,9 +56,9 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
+                { 
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
                     if (list_inkjet.Count > 0)
                     {
@@ -74,7 +74,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_inkjet;
         }
@@ -86,7 +86,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
@@ -103,7 +103,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return list_inkjet;
         }
@@ -112,7 +112,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
+                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -121,7 +121,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 
@@ -134,7 +134,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\test\\inkjet.csv", FileMode.Append))
+                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\inkjet.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -144,17 +144,17 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
         }
 
-        public static bool Duplicate_Inkjet(string full_ip ,string txtEditID)
+        public static bool Duplicate_Inkjet(string full_ip ,string txtEditID )
         {
             List<Inkjet> list_inkjet = new List<Inkjet>();
             var chk_duplicate = true;
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\test\inkjet.csv"))
+                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
@@ -174,7 +174,7 @@ namespace inkjet.Class
                     for (int i = 0; i < list_inkjet.Count; i++)
                     {
 
-                        if (list_inkjet[i].IPAdress == full_ip && list_inkjet[i].InkJetID.ToString() != txtEditID)
+                        if (list_inkjet[i].IPAdress == full_ip && list_inkjet[i].InkJetID.ToString() != txtEditID )
                         {
                             chk_duplicate = false;
                             //MetroFramework.MetroMessageBox.Show(this, "Data is Already Added", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -191,7 +191,7 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
             }
             return chk_duplicate;
         }

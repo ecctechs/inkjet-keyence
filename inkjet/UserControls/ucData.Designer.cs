@@ -137,7 +137,7 @@
             this.mtDateStart.Name = "mtDateStart";
             this.mtDateStart.Size = new System.Drawing.Size(218, 43);
             this.mtDateStart.TabIndex = 16;
-            this.mtDateStart.Value = new System.DateTime(2023, 11, 6, 0, 0, 0, 0);
+            this.mtDateStart.Value = new System.DateTime(2023, 12, 13, 0, 0, 0, 0);
             // 
             // guna2HtmlLabel3
             // 
@@ -241,7 +241,7 @@
             this.shiftDataGridViewTextBoxColumn});
             this.guna2DataGridView1.DataSource = this.datalogBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightGray;
