@@ -23,13 +23,14 @@ namespace inkjet.Class
         [Name(name: "Error Type")]
         public string ErrorType { get; set; }
 
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public static List<ListError> ListError_list()
         {
             List<ListError> list_error = new List<ListError>();
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\list-error.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\list-error.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_error = csv.GetRecords<ListError>().ToList();

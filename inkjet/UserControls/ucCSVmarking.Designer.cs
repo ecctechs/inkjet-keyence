@@ -241,6 +241,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 24;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView1.Visible = false;
             // 
             // detailDataGridViewTextBoxColumn
             // 
@@ -439,7 +440,7 @@
             this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox4.ForeColor = System.Drawing.Color.White;
             this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(242, 241);
+            this.guna2TextBox4.Location = new System.Drawing.Point(201, 191);
             this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox4.Name = "guna2TextBox4";
             this.guna2TextBox4.PasswordChar = '\0';
@@ -464,7 +465,7 @@
             this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox3.ForeColor = System.Drawing.Color.White;
             this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(242, 138);
+            this.guna2TextBox3.Location = new System.Drawing.Point(201, 115);
             this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
@@ -489,7 +490,7 @@
             this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox2.ForeColor = System.Drawing.Color.White;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(242, 45);
+            this.guna2TextBox2.Location = new System.Drawing.Point(201, 40);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
@@ -507,10 +508,10 @@
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(25, 251);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(25, 191);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Padding = new System.Windows.Forms.Padding(50, 10, 10, 50);
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(611, 113);
+            this.guna2HtmlLabel10.Padding = new System.Windows.Forms.Padding(50, 10, 10, 30);
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(611, 83);
             this.guna2HtmlLabel10.TabIndex = 16;
             this.guna2HtmlLabel10.Text = "Total Amount";
             this.guna2HtmlLabel10.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -522,10 +523,10 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(25, 138);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(25, 108);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Padding = new System.Windows.Forms.Padding(50, 10, 10, 50);
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(611, 113);
+            this.guna2HtmlLabel7.Padding = new System.Windows.Forms.Padding(50, 10, 10, 30);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(611, 83);
             this.guna2HtmlLabel7.TabIndex = 15;
             this.guna2HtmlLabel7.Text = "Next Data";
             this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -540,8 +541,8 @@
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(25, 25);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Padding = new System.Windows.Forms.Padding(50, 10, 10, 50);
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(611, 113);
+            this.guna2HtmlLabel9.Padding = new System.Windows.Forms.Padding(50, 10, 10, 30);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(611, 83);
             this.guna2HtmlLabel9.TabIndex = 14;
             this.guna2HtmlLabel9.Text = "Current Data";
             this.guna2HtmlLabel9.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -568,7 +569,7 @@
             this.CsvButtonStop.FillColor = System.Drawing.Color.Red;
             this.CsvButtonStop.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CsvButtonStop.ForeColor = System.Drawing.Color.White;
-            this.CsvButtonStop.Location = new System.Drawing.Point(358, 85);
+            this.CsvButtonStop.Location = new System.Drawing.Point(123, 51);
             this.CsvButtonStop.Name = "CsvButtonStop";
             this.CsvButtonStop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CsvButtonStop.Size = new System.Drawing.Size(232, 203);
@@ -589,7 +590,7 @@
             this.CsvButtonStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.CsvButtonStart.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CsvButtonStart.ForeColor = System.Drawing.Color.White;
-            this.CsvButtonStart.Location = new System.Drawing.Point(358, 85);
+            this.CsvButtonStart.Location = new System.Drawing.Point(123, 51);
             this.CsvButtonStart.Name = "CsvButtonStart";
             this.CsvButtonStart.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CsvButtonStart.Size = new System.Drawing.Size(232, 203);

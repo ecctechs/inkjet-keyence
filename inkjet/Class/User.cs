@@ -93,15 +93,14 @@ namespace inkjet.Class
             strUser = null;
         }
 
- 
 
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public static List<User> ListUser()
         {
-            List<User> list_user = new List<User>();
-
+            List<User> list_user = new List<User>();     
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\user.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\user.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_user = csv.GetRecords<User>().ToList();
@@ -125,9 +124,10 @@ namespace inkjet.Class
 
         public static void Update_User(List<User> records)
         {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\user.csv"))
+                using (var writer = new StreamWriter(path + "\\Inkjet\\Data\\user.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);

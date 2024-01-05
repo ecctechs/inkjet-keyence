@@ -27,13 +27,15 @@ namespace inkjet.Class
         public bool ErrorID2 { get; set; }
 
         public static int running_id;
+
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public static List<Email> ListEmail()
         {
             List<Email> list_email = new List<Email>();
             var records = new List<Email>().ToList() ;
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\email.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_email = csv.GetRecords<Email>().ToList();
@@ -78,7 +80,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\email.csv", FileMode.Append))
+                using (var stream = File.Open(path + "\\Inkjet\\Data\\email.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -98,7 +100,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\email.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_email = csv.GetRecords<Email>().ToList();
@@ -123,7 +125,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv"))
+                using (var writer = new StreamWriter(path + "\\Inkjet\\Data\\email.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -143,7 +145,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\email.csv.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\email.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 list_email = csv.GetRecords<Email>().ToList();

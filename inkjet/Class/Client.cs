@@ -478,8 +478,13 @@ namespace client
                         send_email.Send_Email email = new send_email.Send_Email();
                         //string name = "theerasak789900@gmail.com";
                         string name = emails[i].EmailName;
-                        string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
-                        string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                        string subject = "Inkjet Name : "+ inkjetname + " - "+ detail_error;
+                        //string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                        string detail = "Inkjet Name: "+ inkjetname;
+                        detail += "\n Error Type: "+ type;
+                        detail += "\n Error Code: "+ code;
+                        detail += "\n Error Detail: " + detail_error;
+                        detail += "\n Error Date: " + date_error + " | Time :" + time_error;
                         email.send(name, subject, detail);
                     }
                     else if (emails[i].ErrorID2 == true && code <= 99)
@@ -488,7 +493,12 @@ namespace client
                         //string name = "theerasak789900@gmail.com";
                         string name = emails[i].EmailName;
                         string subject = "Alarm Error Code :" + code + " Inkjet Name :" + inkjetname;
-                        string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                        //string detail = "Inkjet Name :" + inkjetname + " || Error Type :" + type + " || Error Code :" + code + " || Error Detail" + detail_error + " || Date :" + date_error + time_error;
+                        string detail = "Inkjet Name: " + inkjetname;
+                        detail += "\n Error Type: " + type;
+                        detail += "\n Error Code: " + code;
+                        detail += "\n Error Detail: " + detail_error;
+                        detail += "\n Error Date: " + date_error + " | Time :" + time_error;
                         email.send(name, subject, detail);
                     }
                 }

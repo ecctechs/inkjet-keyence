@@ -33,14 +33,16 @@ namespace inkjet.Class
         public string DateType { get; set; }
 
         public static int running_id;
-  
+
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
         public static List<Shift> ListShift()
         {
             List<Shift> list_shift = new List<Shift>();
             
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\shift.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_shift = csv.GetRecords<Shift>().ToList();
@@ -72,7 +74,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\shift.csv", FileMode.Append))
+                using (var stream = File.Open(path + "\\Inkjet\\Data\\shift.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -92,7 +94,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\shift.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_shift = csv.GetRecords<Shift>().ToList();
@@ -117,7 +119,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
+                using (var writer = new StreamWriter(path + "\\Inkjet\\Data\\shift.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -136,7 +138,7 @@ namespace inkjet.Class
 
             try
             {
-            using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
+            using (var reader = new StreamReader(path + "\\Inkjet\\Data\\shift.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 list_shift = csv.GetRecords<Shift>().ToList();
@@ -178,7 +180,7 @@ namespace inkjet.Class
             List<string> end_shift = new List<string>();
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\shift.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\shift.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
 

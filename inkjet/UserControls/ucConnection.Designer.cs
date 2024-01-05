@@ -37,12 +37,12 @@
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.metroGrid1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.inkjetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.inkJetIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPAdressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inkJetNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inkjetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inkjetBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -179,6 +179,15 @@
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // inkjetBindingSource
+            // 
+            this.inkjetBindingSource.DataSource = typeof(inkjet.Class.Inkjet);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 7;
+            this.guna2Elipse1.TargetControl = this.metroGrid1;
+            // 
             // inkJetIDDataGridViewTextBoxColumn
             // 
             this.inkJetIDDataGridViewTextBoxColumn.DataPropertyName = "InkJetID";
@@ -198,7 +207,7 @@
             // inkJetNameDataGridViewTextBoxColumn
             // 
             this.inkJetNameDataGridViewTextBoxColumn.DataPropertyName = "InkJetName";
-            this.inkJetNameDataGridViewTextBoxColumn.HeaderText = "InkJetName";
+            this.inkJetNameDataGridViewTextBoxColumn.HeaderText = "InkJet Name";
             this.inkJetNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.inkJetNameDataGridViewTextBoxColumn.Name = "inkJetNameDataGridViewTextBoxColumn";
             this.inkJetNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -210,15 +219,6 @@
             this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // inkjetBindingSource
-            // 
-            this.inkjetBindingSource.DataSource = typeof(inkjet.Class.Inkjet);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 7;
-            this.guna2Elipse1.TargetControl = this.metroGrid1;
             // 
             // ucConnection
             // 

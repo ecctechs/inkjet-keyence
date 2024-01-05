@@ -44,18 +44,20 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelContainer = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.txtUserInfo);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.btnConnection);
             this.panel1.Controls.Add(this.btnDataLog);
@@ -112,11 +114,11 @@
             // 
             // txtUserInfo
             // 
-            this.txtUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUserInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUserInfo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserInfo.Location = new System.Drawing.Point(1417, 41);
+            this.txtUserInfo.Location = new System.Drawing.Point(0, 0);
             this.txtUserInfo.Name = "txtUserInfo";
-            this.txtUserInfo.Size = new System.Drawing.Size(234, 23);
+            this.txtUserInfo.Size = new System.Drawing.Size(181, 99);
             this.txtUserInfo.TabIndex = 9;
             this.txtUserInfo.Text = "Who Login";
             this.txtUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -281,6 +283,15 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txtUserInfo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1523, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(181, 99);
+            this.panel3.TabIndex = 11;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -301,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -322,6 +334,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Guna.UI2.WinForms.Guna2ComboBox cbxMake;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

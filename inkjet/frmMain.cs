@@ -200,6 +200,7 @@ namespace inkjet
         {
             if (User.getUserRole() == "Operator")
             {
+                
                 pictureBox3.Visible = false;
             }
             else
@@ -210,14 +211,15 @@ namespace inkjet
 
         public void chk_file()
         {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             List<string> path_file  = new List<string>(new string[] {
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\user.csv",
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\shift.csv",
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\list-error.csv",
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\inkjet.csv",
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\error.csv",
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\email.csv",
-                "C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\data_log.csv",
+                path + "\\Inkjet\\Data\\user.csv",
+                path + "\\Inkjet\\Data\\shift.csv",
+                path + "\\Inkjet\\Data\\list-error.csv",
+                path + "\\Inkjet\\Data\\inkjet.csv",
+                path + "\\Inkjet\\Data\\error.csv",
+                path + "\\Inkjet\\Data\\email.csv",
+                path + "\\Inkjet\\Data\\data_log.csv",
             });
 
             for (int i = 0; i < path_file.Count; i++)
@@ -233,6 +235,6 @@ namespace inkjet
                 }
             }
           
-        }   
+        }
     }
 }

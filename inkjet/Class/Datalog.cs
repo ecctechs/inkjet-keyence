@@ -39,13 +39,14 @@ namespace inkjet.Class
         [Name(name: "qty_end")]
         public string qty_end { get; set; }
 
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public static List<Datalog> ListDatalog()
         {
             List<Datalog> list_datalog = new List<Datalog>();
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\data_log.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\data_log.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_datalog = csv.GetRecords<Datalog>().ToList();                   
@@ -66,7 +67,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\data_log.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\data_log.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                 
@@ -135,7 +136,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\data_log.csv", FileMode.Append))
+                using (var stream = File.Open(path + "\\Inkjet\\Data\\data_log.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -153,7 +154,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\data_log.csv"))
+                using (var writer = new StreamWriter(path + "\\Inkjet\\Data\\data_log.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);

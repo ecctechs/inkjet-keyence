@@ -48,7 +48,9 @@ namespace inkjet.Class
         }
 
         public static int running_id;
-  
+
+        public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
 
         public static List<Inkjet> ListInkjet()
         {
@@ -56,7 +58,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\inkjet.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 { 
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
@@ -86,7 +88,7 @@ namespace inkjet.Class
 
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\inkjet.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
@@ -112,7 +114,7 @@ namespace inkjet.Class
         {
             try
             {
-                using (var writer = new StreamWriter(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
+                using (var writer = new StreamWriter(path + "\\Inkjet\\Data\\inkjet.csv"))
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csvWriter.WriteRecords(records);
@@ -134,7 +136,7 @@ namespace inkjet.Class
                     // Don't write the header again.
                     HasHeaderRecord = false,
                 };
-                using (var stream = File.Open("C:\\Users\\ADMIN\\Desktop\\Inkjet\\Data\\inkjet.csv", FileMode.Append))
+                using (var stream = File.Open(path + "\\Inkjet\\Data\\inkjet.csv", FileMode.Append))
                 using (var writer = new StreamWriter(stream))
                 using (var csv = new CsvWriter(writer, config))
                 {
@@ -154,7 +156,7 @@ namespace inkjet.Class
             var chk_duplicate = true;
             try
             {
-                using (var reader = new StreamReader(@"C:\Users\ADMIN\Desktop\Inkjet\Data\inkjet.csv"))
+                using (var reader = new StreamReader(path + "\\Inkjet\\Data\\inkjet.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
