@@ -133,11 +133,26 @@ namespace inkjet.UserControls
                         {
                             records.Add(s);
                         }
-                        list_csv = records;                 
+                        list_csv = records;
+                        reset_csv_data();
                     }
                 }
             }
          }
+
+        public void reset_csv_data()
+        {
+            x.Stop();
+            inkjet_name = "";
+            CsvButtonStart.Show();
+            CsvButtonStop.Hide();
+            guna2ComboBox1.SelectedIndex = 0;
+            guna2TextBox5.Text = "";
+            guna2TextBox6.Text = "";
+            guna2TextBox2.Clear();
+            guna2TextBox3.Clear();
+            guna2TextBox4.Clear();
+        }
          
         private void CsvButtonStop_Click(object sender, EventArgs e)
         {
@@ -159,14 +174,30 @@ namespace inkjet.UserControls
            
             for (int i = 0; i < records.Count; i++)
             {
+                //&& records[i].Status == "Connected"
                 //Console.WriteLine(records[i].InkJetName+"=="+ inkjet_chk+"$$"+ records[i].Status+ "Connected");
-                if (records[i].InkJetName.Trim() == inkjet_chk && records[i].Status == "Connected")
+                //if (records[i].InkJetName.Trim() == inkjet_chk && records[i].Status == "Connected")
+                //{
+                //    chk = true;
+                //    continue;
+                //}
+                //else
+                //{
+                //    chk = false;
+                //    break;
+                //}
+                if (records[i].InkJetName.Trim() == inkjet_chk)
                 {
-                    chk = true;
-                }
-                else
-                {
-                    chk = false;
+                    if (records[i].Status == "Connected")
+                    {
+                        chk = true;
+                        continue;
+                    }
+                    else
+                    {
+                        chk = false;
+                        break;
+                    }
                 }
             }
             return chk;
@@ -201,7 +232,7 @@ namespace inkjet.UserControls
             //    Console.WriteLine(e.ToString());
             //    //MessageBox.Show(e.ToString());
             //}
-            if (ip_inkjet[0] != null)
+            if (ip_inkjet.Count > 0)
             {
                 if (ChkInkjet() == true && ip_inkjet[0] != "")
                 {
@@ -226,9 +257,9 @@ namespace inkjet.UserControls
                     var respone_qty_current = Encoding.ASCII.GetString(messageReceived_qty_current, 0, byteRecv_qty_current);
                     var respone_qty_current_number = respone_qty_current.Split(',').ToList();
 
-                    Console.WriteLine(respone_qty_current_number[2]);
+                    //Console.WriteLine(respone_qty_current_number[2]);
 
-                    Console.WriteLine(current_qty);
+                    //Console.WriteLine(current_qty);
 
 
                     if (Int32.Parse(respone_qty_current_number[2]) != current_qty)
@@ -395,7 +426,5 @@ namespace inkjet.UserControls
                 }
             }
         }
-
-     
     }
 }

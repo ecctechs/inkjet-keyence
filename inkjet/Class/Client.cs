@@ -135,6 +135,8 @@ namespace client
                             var respone_error = Encoding.ASCII.GetString(messageReceived_error, 0, byteRecv_error);
                             var respone_error_list = respone_error.Split(',').ToList();
 
+                            set_programs(respone_programs_list[3]);
+
                             //Console.WriteLine("--------------------------------" + respone_error_list[0]);
                             string ink_status = "Normal";
                             string solvent_status = "Normal";
@@ -201,7 +203,7 @@ namespace client
                                 var date_log = DateTime.Now.ToString("d/M/yyyy HH:mm");
                                 string shift_text = Shift.Update_Shift(date_log);
                                 //var date_now = DateTime.Now.ToString("d/M/yyyy HH:mm");
-                                Console.WriteLine("Change!!!");
+                                //Console.WriteLine("Change!!!");
 
                                 records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "777", DateStart = date_log, DateEnd = date_log, Shift = shift_text , qty_end = respone_qty_current_number[2] });
                                 Update_Datalog(records_datalog);
@@ -209,17 +211,11 @@ namespace client
                                 records_datalog.Clear();
                                 records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = respone_programs_list[3], Qty = "", DateStart = date_log, DateEnd = "", Shift = shift_text , qty_start = respone_qty_current_number[2] });
                                 Datalog.Add_DataLog(records_datalog);
-
-                                //records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "777", DateStart = date_log, DateEnd = date_log, Shift = shift_text });
-                                //Update_Datalog(records_datalog);
+                                //Console.WriteLine("2222222222222222222222");
+                              
                             }
-                         
-
-
-                         
-
-
-                            if (get_status() == "Stopped" && real_status == "Printable")
+                            //|| get_status() == "" && real_status == "Printable"
+                            if (get_status() == "Stopped" && real_status == "Printable" ) //ถ้าเครื่อง stop แล้วกด start
                             {
                                 byte[] messageSent_qty = Encoding.ASCII.GetBytes("KH,3\r");
                                 int byteSent_qty = sender.Send(messageSent_qty);
@@ -232,12 +228,13 @@ namespace client
                                 var date_log = DateTime.Now.ToString("d/M/yyyy HH:mm");
                                 string shift_text = Shift.Update_Shift(date_log);
                                 records_datalog.Add(new Datalog { InkJet = records[y].InkJetName, Program = get_programs(), Qty = "", DateStart = date_log, DateEnd = "", Shift = shift_text , qty_start = respone_qty_current_number[2] });
+                              
                                 Datalog.Add_DataLog(records_datalog);
+                                
+                                //Console.WriteLine("11111111111111111111");
                             }
                            
-                            //Console.WriteLine(get_status());
-                            //Console.WriteLine(real_status);
-                            if (get_status() == "Printable" && real_status == "Stopped")
+                            if (get_status() == "Printable" && real_status == "Stopped") // ถ้าเครื่อง printrable และกด stop
                             {
                                 byte[] messageSent_qty = Encoding.ASCII.GetBytes("KH,3\r");
                                 int byteSent_qty = sender.Send(messageSent_qty);
@@ -261,7 +258,7 @@ namespace client
                             //                                 0, byteRecv));
                            
 
-                            set_programs(respone_programs_list[3]);
+                            //set_programs(respone_programs_list[3]);
                             set_status(real_status);
 
 

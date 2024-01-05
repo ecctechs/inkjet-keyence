@@ -50,7 +50,7 @@
             // btnSearch
             // 
             this.btnSearch.BorderRadius = 5;
-            this.btnSearch.BorderThickness = 3;
+            this.btnSearch.BorderThickness = 2;
             this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -68,7 +68,7 @@
             // btnEdit
             // 
             this.btnEdit.BorderRadius = 5;
-            this.btnEdit.BorderThickness = 3;
+            this.btnEdit.BorderThickness = 2;
             this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -86,7 +86,7 @@
             // btnDelete
             // 
             this.btnDelete.BorderRadius = 5;
-            this.btnDelete.BorderThickness = 3;
+            this.btnDelete.BorderThickness = 2;
             this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -182,7 +182,7 @@
             // inkJetIDDataGridViewTextBoxColumn
             // 
             this.inkJetIDDataGridViewTextBoxColumn.DataPropertyName = "InkJetID";
-            this.inkJetIDDataGridViewTextBoxColumn.HeaderText = "InkJetID";
+            this.inkJetIDDataGridViewTextBoxColumn.HeaderText = "InkJet ID";
             this.inkJetIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.inkJetIDDataGridViewTextBoxColumn.Name = "inkJetIDDataGridViewTextBoxColumn";
             this.inkJetIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -243,11 +243,11 @@
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2DataGridView metroGrid1;
+        private System.Windows.Forms.BindingSource inkjetBindingSource;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.DataGridViewTextBoxColumn inkJetIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iPAdressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn inkJetNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource inkjetBindingSource;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

@@ -89,7 +89,7 @@ namespace inkjet.UserControls
             }
             else
             {
-                MessageBox.Show(this, "Shift cannot be blank", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Please fill in Shift Name", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }     
             get_shift();
             metroGrid1.Show();

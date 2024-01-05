@@ -53,6 +53,7 @@
             this.Name = "ucOverview";
             this.Size = new System.Drawing.Size(944, 575);
             this.Load += new System.EventHandler(this.ucOverview_Load);
+            this.ClientSizeChanged += new System.EventHandler(this.ucOverview_ClientSizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

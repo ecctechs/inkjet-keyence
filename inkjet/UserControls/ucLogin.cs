@@ -62,7 +62,8 @@ namespace inkjet.UserControls
                     }
                     ucOverview uc = new ucOverview();   
                     frmMain.Instance.addUserControl(uc);
-                 
+                    //DialogResult = DialogResult.OK;
+                    //this.ParentForm.DialogResult = DialogResult.OK;
                 }
             }
         }

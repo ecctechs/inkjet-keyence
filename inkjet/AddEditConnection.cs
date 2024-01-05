@@ -87,19 +87,7 @@ namespace inkjet
                     string program_name_running = ucCSVmarking.inkjet_name;
                     Console.WriteLine("---->>"+ program_name_running + "+++"+ txtInkjetName.Text);
                     List<Inkjet> inkjet_list = Inkjet.ListInkjet();
-                    //if (program_name_running == txtInkjetName.Text)
-                    //{
-                    //    MessageBox.Show(this, "Inkjet is Running !!");
-                    //}
-                    //else
-                    //{
-                    string gg = ucCSVmarking.inkjet_name;
-                    if (gg != "")
-                    {
-                        MessageBox.Show(this, "Cant edit because Inkjet is Running !!");
-                    }
-                    else
-                    {
+              
                         for (int i = 0; i < inkjet_list.Count; i++)
                         {
 
@@ -112,7 +100,7 @@ namespace inkjet
                             Inkjet.Update_Inkjet(inkjet_list);
                         }
                         DialogResult = DialogResult.OK;
-                    }
+                    //}
                     //for (int i = 0; i < inkjet_list.Count; i++)
                     //    {
 

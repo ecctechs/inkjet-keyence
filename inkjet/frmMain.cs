@@ -54,6 +54,7 @@ namespace inkjet
             panelContainer.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
             uc.BringToFront();
+            
         }
 
         private void btnOverview_Click(object sender, EventArgs e)
@@ -71,18 +72,21 @@ namespace inkjet
             TimerClient.aTimer.Stop();
             TimerClient.aTimer.Start();
             string gg2 = ucCSVmarking.inkjet_name;
+            //Console.WriteLine("wWE+------->" + gg2);
 
-            if (gg2 != "")
-            {
+            //if (gg2 == "" )
+            //{
+            //    Console.WriteLine("222222222222222222");
+            //    ucCSVmarking uc = new ucCSVmarking();
+            //    addUserControl(uc);
+            //}
+            //else
+            //{
+                Console.WriteLine("111111111111111111");
                 ucCSVmarking uc = ucCSVmarking.Instance;
                 addUserControl(uc);
-            }
-            else
-            {
-                ucCSVmarking uc = new ucCSVmarking();
-                addUserControl(uc);
-            }
-        }
+            //}
+}
 
         private void btnError_Click(object sender, EventArgs e)
         {
@@ -188,6 +192,7 @@ namespace inkjet
                 panelContainer.Controls.Add(userControl);
                 userControl.BringToFront();
                 get_Userinfo();
+                permisstion();
             }
         }
 
@@ -228,6 +233,6 @@ namespace inkjet
                 }
             }
           
-        }
+        }   
     }
 }

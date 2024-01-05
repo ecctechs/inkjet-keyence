@@ -113,7 +113,8 @@
             this.txtPasswordOp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPasswordOp.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPasswordOp.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPasswordOp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPasswordOp.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswordOp.ForeColor = System.Drawing.Color.Black;
             this.txtPasswordOp.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPasswordOp.Location = new System.Drawing.Point(132, 263);
             this.txtPasswordOp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -135,7 +136,8 @@
             this.txtUsernameOp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsernameOp.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsernameOp.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsernameOp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUsernameOp.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsernameOp.ForeColor = System.Drawing.Color.Black;
             this.txtUsernameOp.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsernameOp.Location = new System.Drawing.Point(132, 218);
             this.txtUsernameOp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -157,7 +159,8 @@
             this.txtPasswordAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPasswordAdmin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPasswordAdmin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPasswordAdmin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPasswordAdmin.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswordAdmin.ForeColor = System.Drawing.Color.Black;
             this.txtPasswordAdmin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPasswordAdmin.Location = new System.Drawing.Point(132, 143);
             this.txtPasswordAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -179,7 +182,8 @@
             this.txtUsernameAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsernameAdmin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsernameAdmin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsernameAdmin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUsernameAdmin.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.txtUsernameAdmin.ForeColor = System.Drawing.Color.Black;
             this.txtUsernameAdmin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsernameAdmin.Location = new System.Drawing.Point(132, 97);
             this.txtUsernameAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

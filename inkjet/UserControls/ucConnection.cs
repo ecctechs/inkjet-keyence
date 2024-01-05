@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using CsvHelper;
 using Guna.UI2.WinForms;
@@ -91,27 +92,38 @@ namespace inkjet.UserControls
             TimerClient.aTimer.Stop();
             Inkjet obj = inkjetBindingSource.Current as Inkjet;
 
-            if (obj != null)
-            {
-                using (AddEditConnection frm = new AddEditConnection(obj))
+            int selectedrowindex = metroGrid1.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = metroGrid1.Rows[selectedrowindex];
+            string cellValue = Convert.ToString(selectedRow.Cells[2].Value);
+            string gg = ucCSVmarking.inkjet_name;
+            if (cellValue != gg) {
+
+                if (obj != null)
                 {
-
-                    if (frm.ShowDialog() == DialogResult.Cancel)
+                    using (AddEditConnection frm = new AddEditConnection(obj))
                     {
-                        get_Connection();
-                        Statu_Color();
-                        metroGrid1.Show();
-                        TimerClient.aTimer.Start();
-                    }
 
-                    else 
-                    {
-                        get_Connection();
-                        Statu_Color();
-                        metroGrid1.Show();
-                        TimerClient.aTimer.Start();
+                        if (frm.ShowDialog() == DialogResult.Cancel)
+                        {
+                            get_Connection();
+                            Statu_Color();
+                            metroGrid1.Show();
+                            TimerClient.aTimer.Start();
+                        }
+
+                        else
+                        {
+                            get_Connection();
+                            Statu_Color();
+                            metroGrid1.Show();
+                            TimerClient.aTimer.Start();
+                        }
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show(this, "Cant edit because Inkjet is Running");
             }
         }
 

@@ -122,14 +122,14 @@
             this.guna2GradientPanel1.Location = new System.Drawing.Point(14, 12);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Padding = new System.Windows.Forms.Padding(20);
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1367, 321);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1367, 340);
             this.guna2GradientPanel1.TabIndex = 0;
             // 
             // guna2HtmlLabel5
             // 
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(407, 155);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(401, 162);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(145, 21);
             this.guna2HtmlLabel5.TabIndex = 15;
@@ -138,6 +138,7 @@
             // 
             // guna2TextBox6
             // 
+            this.guna2TextBox6.BorderColor = System.Drawing.Color.Black;
             this.guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox6.DefaultText = "";
             this.guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -146,21 +147,23 @@
             this.guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox6.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.Location = new System.Drawing.Point(201, 207);
+            this.guna2TextBox6.Location = new System.Drawing.Point(201, 200);
             this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox6.MaxLength = 3;
             this.guna2TextBox6.Name = "guna2TextBox6";
             this.guna2TextBox6.PasswordChar = '\0';
             this.guna2TextBox6.PlaceholderText = "";
             this.guna2TextBox6.SelectedText = "";
-            this.guna2TextBox6.Size = new System.Drawing.Size(185, 36);
+            this.guna2TextBox6.Size = new System.Drawing.Size(185, 49);
             this.guna2TextBox6.TabIndex = 14;
             this.guna2TextBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBox6_KeyPress);
             this.guna2TextBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.guna2TextBox6_KeyUp);
             // 
             // guna2TextBox5
             // 
+            this.guna2TextBox5.BorderColor = System.Drawing.Color.Black;
             this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox5.DefaultText = "";
             this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -169,15 +172,16 @@
             this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(201, 147);
+            this.guna2TextBox5.Location = new System.Drawing.Point(201, 139);
             this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox5.MaxLength = 3;
             this.guna2TextBox5.Name = "guna2TextBox5";
             this.guna2TextBox5.PasswordChar = '\0';
             this.guna2TextBox5.PlaceholderText = "";
             this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(185, 36);
+            this.guna2TextBox5.Size = new System.Drawing.Size(185, 44);
             this.guna2TextBox5.TabIndex = 13;
             this.guna2TextBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBox5_KeyPress);
             this.guna2TextBox5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.guna2TextBox5_KeyUp);
@@ -209,12 +213,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(772, 41);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(810, 15);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(559, 241);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(534, 302);
             this.guna2DataGridView1.TabIndex = 12;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -252,6 +256,7 @@
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Black;
             this.guna2ComboBox1.DataSource = this.InkjetbindingSource1;
             this.guna2ComboBox1.DisplayMember = "InkJetName";
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -259,9 +264,9 @@
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(201, 86);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(201, 80);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.Size = new System.Drawing.Size(312, 36);
             this.guna2ComboBox1.TabIndex = 9;
@@ -274,17 +279,17 @@
             // btnUpload
             // 
             this.btnUpload.BorderRadius = 5;
-            this.btnUpload.BorderThickness = 3;
+            this.btnUpload.BorderThickness = 2;
             this.btnUpload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUpload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUpload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUpload.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUpload.FillColor = System.Drawing.Color.Green;
-            this.btnUpload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpload.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.btnUpload.ForeColor = System.Drawing.Color.White;
-            this.btnUpload.Location = new System.Drawing.Point(582, 24);
+            this.btnUpload.Location = new System.Drawing.Point(606, 20);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(120, 33);
+            this.btnUpload.Size = new System.Drawing.Size(128, 41);
             this.btnUpload.TabIndex = 8;
             this.btnUpload.Text = "Upload File";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
@@ -346,19 +351,19 @@
             this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.Enabled = false;
-            this.guna2TextBox1.FillColor = System.Drawing.Color.Silver;
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox1.HideSelection = false;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(201, 24);
+            this.guna2TextBox1.Location = new System.Drawing.Point(201, 20);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.ReadOnly = true;
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(375, 33);
+            this.guna2TextBox1.Size = new System.Drawing.Size(375, 41);
             this.guna2TextBox1.TabIndex = 1;
             // 
             // guna2HtmlLabel1
@@ -422,6 +427,7 @@
             // 
             // guna2TextBox4
             // 
+            this.guna2TextBox4.BorderColor = System.Drawing.Color.Black;
             this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox4.DefaultText = "";
             this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -446,6 +452,7 @@
             // 
             // guna2TextBox3
             // 
+            this.guna2TextBox3.BorderColor = System.Drawing.Color.Black;
             this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox3.DefaultText = "";
             this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -470,6 +477,7 @@
             // 
             // guna2TextBox2
             // 
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.Black;
             this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox2.DefaultText = "";
             this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

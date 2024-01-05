@@ -23,7 +23,16 @@ namespace inkjet.UserControls
 
         public ucOverview()
         {
-            InitializeComponent();           
+            InitializeComponent();
+
+            //itemOverview item = new itemOverview();
+            //item.Width = this.Width - 10;
+            //item.Height = 20;
+            //item.Left = (this.ClientSize.Width - item.Width) / 2;
+            //item.Top = (this.ClientSize.Height - item.Height) / 2;
+            ////item.Text = "click me";
+            //this.Controls.Add(item);
+            //item.Anchor = AnchorStyles.None;
         }
 
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
@@ -97,9 +106,13 @@ namespace inkjet.UserControls
                     item.guna2GradientPanel1.FillColor2 = Color.LightGray;
                     item.guna2GradientPanel1.BorderColor = Color.Gray;
                 }
-
+                //flowLayoutPanel1.Left = (this.ClientSize.Width - flowLayoutPanel1.Width) / 2;
                 flowLayoutPanel1.Controls.Add(item);
-                
+
+                //item.Left = (this.ClientSize.Width - item.Width) / 2;
+                //flowLayoutPanel1.Anchor = AnchorStyles.None;
+
+
 
                 //panel1.Dock = DockStyle.Fill;
                 //panel1.Controls.Clear();
@@ -113,13 +126,20 @@ namespace inkjet.UserControls
         }
         private void ucOverview_Load(object sender, EventArgs e)
         {
-            get_item();
+            get_item();           
             InitTimer();
+           
+
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             get_item();
+        }
+
+        private void ucOverview_ClientSizeChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Left = (this.ClientSize.Width - flowLayoutPanel1.Width) / 2;
         }
     }
 }

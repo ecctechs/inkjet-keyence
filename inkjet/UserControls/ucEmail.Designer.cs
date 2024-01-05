@@ -38,11 +38,11 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.metroGrid1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.emailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emailNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ErrorID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ErrorID2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.emailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.BorderColor = System.Drawing.Color.Black;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -67,6 +68,7 @@
             this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Location = new System.Drawing.Point(20, 70);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -192,10 +194,6 @@
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.metroGrid1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellEndEdit);
             // 
-            // emailBindingSource
-            // 
-            this.emailBindingSource.DataSource = typeof(inkjet.Class.Email);
-            // 
             // emailNoDataGridViewTextBoxColumn
             // 
             this.emailNoDataGridViewTextBoxColumn.DataPropertyName = "EmailNo";
@@ -233,6 +231,10 @@
             this.ErrorID2.HeaderText = "Only Error";
             this.ErrorID2.MinimumWidth = 6;
             this.ErrorID2.Name = "ErrorID2";
+            // 
+            // emailBindingSource
+            // 
+            this.emailBindingSource.DataSource = typeof(inkjet.Class.Email);
             // 
             // ucEmail
             // 

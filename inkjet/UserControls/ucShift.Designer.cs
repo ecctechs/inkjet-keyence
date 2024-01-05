@@ -39,13 +39,13 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.metroGrid1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtShiftName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.DateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.shiftNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtShiftName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.DateTimeStart = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shiftBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -194,38 +194,6 @@
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.metroGrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // txtShiftName
-            // 
-            this.txtShiftName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtShiftName.DefaultText = "";
-            this.txtShiftName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtShiftName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtShiftName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtShiftName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtShiftName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtShiftName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtShiftName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtShiftName.Location = new System.Drawing.Point(165, 57);
-            this.txtShiftName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtShiftName.Name = "txtShiftName";
-            this.txtShiftName.PasswordChar = '\0';
-            this.txtShiftName.PlaceholderText = "";
-            this.txtShiftName.SelectedText = "";
-            this.txtShiftName.Size = new System.Drawing.Size(229, 29);
-            this.txtShiftName.TabIndex = 32;
-            // 
-            // DateTimeStart
-            // 
-            this.DateTimeStart.Checked = false;
-            this.DateTimeStart.CustomFormat = "hh:mm";
-            this.DateTimeStart.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DateTimeStart.Location = new System.Drawing.Point(175, 104);
-            this.DateTimeStart.Name = "DateTimeStart";
-            this.DateTimeStart.ShowUpDown = true;
-            this.DateTimeStart.Size = new System.Drawing.Size(229, 28);
-            this.DateTimeStart.TabIndex = 35;
-            // 
             // shiftNoDataGridViewTextBoxColumn
             // 
             this.shiftNoDataGridViewTextBoxColumn.DataPropertyName = "ShiftNo";
@@ -262,6 +230,40 @@
             // shiftBindingSource
             // 
             this.shiftBindingSource.DataSource = typeof(inkjet.Class.Shift);
+            // 
+            // txtShiftName
+            // 
+            this.txtShiftName.BorderColor = System.Drawing.Color.Black;
+            this.txtShiftName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtShiftName.DefaultText = "";
+            this.txtShiftName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtShiftName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtShiftName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtShiftName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtShiftName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtShiftName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtShiftName.ForeColor = System.Drawing.Color.Black;
+            this.txtShiftName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtShiftName.Location = new System.Drawing.Point(175, 56);
+            this.txtShiftName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtShiftName.Name = "txtShiftName";
+            this.txtShiftName.PasswordChar = '\0';
+            this.txtShiftName.PlaceholderText = "";
+            this.txtShiftName.SelectedText = "";
+            this.txtShiftName.Size = new System.Drawing.Size(229, 29);
+            this.txtShiftName.TabIndex = 32;
+            // 
+            // DateTimeStart
+            // 
+            this.DateTimeStart.Checked = false;
+            this.DateTimeStart.CustomFormat = "hh:mm";
+            this.DateTimeStart.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.DateTimeStart.Location = new System.Drawing.Point(175, 104);
+            this.DateTimeStart.Name = "DateTimeStart";
+            this.DateTimeStart.ShowUpDown = true;
+            this.DateTimeStart.Size = new System.Drawing.Size(229, 28);
+            this.DateTimeStart.TabIndex = 35;
             // 
             // ucShift
             // 

@@ -64,13 +64,13 @@
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExport.BorderRadius = 5;
-            this.btnExport.BorderThickness = 3;
+            this.btnExport.BorderThickness = 2;
             this.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnExport.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnExport.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.Location = new System.Drawing.Point(1425, 37);
             this.btnExport.Name = "btnExport";
@@ -83,13 +83,13 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.BorderRadius = 5;
-            this.btnSearch.BorderThickness = 3;
+            this.btnSearch.BorderThickness = 2;
             this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(209)))), ((int)(((byte)(42)))));
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.FillColor = System.Drawing.Color.Orange;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(1305, 37);
             this.btnSearch.Name = "btnSearch";
@@ -153,14 +153,15 @@
             // mcbShift
             // 
             this.mcbShift.BackColor = System.Drawing.Color.Transparent;
+            this.mcbShift.BorderColor = System.Drawing.Color.Black;
             this.mcbShift.DataSource = this.shiftBindingSource;
             this.mcbShift.DisplayMember = "ShiftName";
             this.mcbShift.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.mcbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mcbShift.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.mcbShift.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.mcbShift.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.mcbShift.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.mcbShift.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcbShift.ForeColor = System.Drawing.Color.Black;
             this.mcbShift.ItemHeight = 30;
             this.mcbShift.Location = new System.Drawing.Point(399, 37);
             this.mcbShift.Name = "mcbShift";
@@ -182,14 +183,15 @@
             // mcbInkjet
             // 
             this.mcbInkjet.BackColor = System.Drawing.Color.Transparent;
+            this.mcbInkjet.BorderColor = System.Drawing.Color.Black;
             this.mcbInkjet.DataSource = this.inkjetBindingSource;
             this.mcbInkjet.DisplayMember = "InkJetName";
             this.mcbInkjet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.mcbInkjet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mcbInkjet.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.mcbInkjet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.mcbInkjet.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.mcbInkjet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.mcbInkjet.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcbInkjet.ForeColor = System.Drawing.Color.Black;
             this.mcbInkjet.ItemHeight = 30;
             this.mcbInkjet.Location = new System.Drawing.Point(106, 37);
             this.mcbInkjet.Name = "mcbInkjet";
