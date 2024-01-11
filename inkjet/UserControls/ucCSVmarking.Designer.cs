@@ -35,8 +35,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.detailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,8 +110,10 @@
             this.guna2GradientPanel1.BorderColor = System.Drawing.Color.Black;
             this.guna2GradientPanel1.BorderRadius = 5;
             this.guna2GradientPanel1.BorderThickness = 5;
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel5);
+            this.guna2GradientPanel1.Controls.Add(this.guna2ComboBox2);
             this.guna2GradientPanel1.Controls.Add(this.guna2TextBox6);
+            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel6);
+            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel5);
             this.guna2GradientPanel1.Controls.Add(this.guna2TextBox5);
             this.guna2GradientPanel1.Controls.Add(this.guna2DataGridView1);
             this.guna2GradientPanel1.Controls.Add(this.guna2ComboBox1);
@@ -125,16 +129,25 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1367, 340);
             this.guna2GradientPanel1.TabIndex = 0;
             // 
-            // guna2HtmlLabel5
+            // guna2ComboBox2
             // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(401, 162);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(145, 21);
-            this.guna2HtmlLabel5.TabIndex = 15;
-            this.guna2HtmlLabel5.Text = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Visible = false;
+            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox2.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox2.ItemHeight = 30;
+            this.guna2ComboBox2.Items.AddRange(new object[] {
+            "String",
+            "1D/2D code"});
+            this.guna2ComboBox2.Location = new System.Drawing.Point(201, 198);
+            this.guna2ComboBox2.Name = "guna2ComboBox2";
+            this.guna2ComboBox2.Size = new System.Drawing.Size(312, 36);
+            this.guna2ComboBox2.StartIndex = 0;
+            this.guna2ComboBox2.TabIndex = 17;
             // 
             // guna2TextBox6
             // 
@@ -149,7 +162,7 @@
             this.guna2TextBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox6.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.Location = new System.Drawing.Point(201, 200);
+            this.guna2TextBox6.Location = new System.Drawing.Point(201, 256);
             this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox6.MaxLength = 3;
             this.guna2TextBox6.Name = "guna2TextBox6";
@@ -160,6 +173,32 @@
             this.guna2TextBox6.TabIndex = 14;
             this.guna2TextBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBox6_KeyPress);
             this.guna2TextBox6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.guna2TextBox6_KeyUp);
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.AutoSize = false;
+            this.guna2HtmlLabel6.AutoSizeHeightOnly = true;
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(20, 260);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Padding = new System.Windows.Forms.Padding(50, 10, 10, 15);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(1327, 60);
+            this.guna2HtmlLabel6.TabIndex = 16;
+            this.guna2HtmlLabel6.Text = "Block No :";
+            this.guna2HtmlLabel6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(392, 146);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(145, 21);
+            this.guna2HtmlLabel5.TabIndex = 15;
+            this.guna2HtmlLabel5.Text = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Visible = false;
             // 
             // guna2TextBox5
             // 
@@ -174,7 +213,7 @@
             this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(201, 139);
+            this.guna2TextBox5.Location = new System.Drawing.Point(201, 137);
             this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2TextBox5.MaxLength = 3;
             this.guna2TextBox5.Name = "guna2TextBox5";
@@ -272,6 +311,7 @@
             this.guna2ComboBox1.Size = new System.Drawing.Size(312, 36);
             this.guna2ComboBox1.TabIndex = 9;
             this.guna2ComboBox1.ValueMember = "InkJetID";
+            this.guna2ComboBox1.DropDownClosed += new System.EventHandler(this.guna2ComboBox1_DropDownClosed);
             // 
             // InkjetbindingSource1
             // 
@@ -307,7 +347,7 @@
             this.guna2HtmlLabel4.Padding = new System.Windows.Forms.Padding(50, 10, 10, 15);
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(1327, 60);
             this.guna2HtmlLabel4.TabIndex = 4;
-            this.guna2HtmlLabel4.Text = "Block No :";
+            this.guna2HtmlLabel4.Text = "Type :";
             this.guna2HtmlLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2HtmlLabel3
@@ -656,5 +696,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
     }
 }

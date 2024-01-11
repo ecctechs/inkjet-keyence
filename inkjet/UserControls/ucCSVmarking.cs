@@ -30,6 +30,7 @@ namespace inkjet.UserControls
         public static string inkjet_name = "";
         private static string programs_name = "";
         private static string block_name = "";
+        private static string type_s = "";
         private static int sim_data = 0;
         private static int current_qty = 0;
  
@@ -73,6 +74,7 @@ namespace inkjet.UserControls
             inkjet_name = guna2ComboBox1.Text;
             programs_name = guna2TextBox5.Text;
             block_name = guna2TextBox6.Text;
+            type_s = guna2ComboBox2.Text;
 
             if (guna2TextBox1.Text == "")
             {
@@ -97,13 +99,22 @@ namespace inkjet.UserControls
                 CsvButtonStart.Hide();
                 CsvButtonStop.Show();
 
+                guna2ComboBox1.Enabled = false;
+                guna2ComboBox2.Enabled = false;
+                guna2TextBox5.ReadOnly = true;
+                guna2TextBox6.ReadOnly = true;
+                guna2TextBox5.FillColor = Color.Gray;
+                guna2TextBox6.FillColor = Color.Gray;
+
                 string inkjet_id = guna2ComboBox1.Text;
                 string programs_id = guna2TextBox5.Text;
                 string block_id = guna2TextBox6.Text;
+                string type = guna2ComboBox2.Text;
                 int start = 0;
-                On_Off_printer(inkjet_id,"SQ");
+                
                 csvMarking_chk.set_running(true);
-                Add_detail(inkjet_id,programs_id,block_id,start);
+                Add_detail(inkjet_id,programs_id,block_id,start, type);
+                On_Off_printer(inkjet_id, "SQ");
 
 
             }
@@ -157,6 +168,12 @@ namespace inkjet.UserControls
         private void CsvButtonStop_Click(object sender, EventArgs e)
         {
             x.Stop();
+            guna2ComboBox1.Enabled = true;
+            guna2TextBox5.ReadOnly = false;
+            guna2TextBox6.ReadOnly = false;
+            guna2ComboBox2.Enabled = true;
+            guna2TextBox5.FillColor = Color.White;
+            guna2TextBox6.FillColor = Color.White;
             CsvButtonStart.Show();
             CsvButtonStop.Hide();
             string inkjet_id = guna2ComboBox1.Text;
@@ -220,7 +237,7 @@ namespace inkjet.UserControls
             return listRange;
 
         }
-        public void Add_detail(string inkjet_id, string programs_id , string block_id , int start)
+        public void Add_detail(string inkjet_id, string programs_id , string block_id , int start , string type)
         {
             List<string> ip_inkjet = get_inkjet_ip(inkjet_id);
             //try
@@ -266,7 +283,21 @@ namespace inkjet.UserControls
                     {
                         if (start < list_csv.Count)
                         {
-                            string command = "FS," + programs_id + "," + block_id + ",0," + list_csv[start].Detail + "\r";
+
+                            //string command = "FS," + programs_id + "," + block_id + ",0," + list_csv[start].Detail + "\r";
+                            //string command = "BR," + list_csv[start].Detail + "\r";
+                            string command;
+                            if (type == "String")
+                            {
+                                 command = "FS," + programs_id + "," + block_id + ",0," + list_csv[start].Detail + "\r";
+                            }
+                            else
+                            {
+                                 command = "BE,"+ programs_id + ","+ block_id + "," + list_csv[start].Detail + "\r";
+                            }
+                            //Console.WriteLine(command);
+
+
 
                             byte[] messageSent_status = Encoding.ASCII.GetBytes(command);
                             Console.WriteLine(command);
@@ -318,12 +349,13 @@ namespace inkjet.UserControls
             string inkjet_id = inkjet_name;
             string programs_id = programs_name;
             string block_id = block_name;
+            string type = type_s;
             int start = sim_data ;
            
-            Add_detail(inkjet_id, programs_id, block_id , start);         
+            Add_detail(inkjet_id, programs_id, block_id , start , type);         
         }
 
-        public void On_Off_printer(string inkjet_id , string command)
+        public static void On_Off_printer(string inkjet_id , string command)
         {
             List<string> ip_inkjet = get_inkjet_ip(inkjet_id);
 
@@ -419,10 +451,44 @@ namespace inkjet.UserControls
             if (guna2TextBox6.Text != "")
             {
                 int block_no = Int32.Parse(guna2TextBox6.Text);
-                if (block_no > 256)
+                string type = guna2ComboBox2.Text;
+                //Console.WriteLine(type);
+                if (type == "String")
                 {
-                    MessageBox.Show("Block No. is out of rang ! more then 256");
-                    guna2TextBox6.Text = "";
+                    if (block_no > 256)
+                    {
+                        MessageBox.Show("Block No. is out of rang ! more then 256");
+                        guna2TextBox6.Text = "";
+                    }
+                }
+                else
+                {
+                    if (block_no > 4)
+                    {
+                        MessageBox.Show("Block No. is out of rang ! more then 4");
+                        guna2TextBox6.Text = "";
+                    }
+                }
+            }
+        }
+
+        private void guna2ComboBox1_DropDownClosed(object sender, EventArgs e)
+        {
+            string id = guna2ComboBox1.Text;
+            List<string> ip_inkjet = get_inkjet_ip(id);
+
+            if (guna2TextBox5.Text != "")
+            {
+                int program = Int32.Parse(guna2TextBox5.Text);
+                if (program > 500)
+                {
+                    MessageBox.Show("Program is out of rang ! more then 500");
+                    guna2TextBox5.Text = "";
+                    guna2HtmlLabel5.Visible = false;
+                }
+                else
+                {
+                    get_name_programs(ip_inkjet[0], program);
                 }
             }
         }

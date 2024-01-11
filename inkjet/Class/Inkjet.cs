@@ -47,9 +47,16 @@ namespace inkjet.Class
             get; set;
         }
 
+        [Name(name: "Reset")]
+        public string reset
+        {
+            get; set;
+        }
         public static int running_id;
 
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        public static List<Inkjet> list_inkjet_catch = new List<Inkjet>();
 
 
         public static List<Inkjet> ListInkjet()
@@ -62,6 +69,7 @@ namespace inkjet.Class
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 { 
                     list_inkjet = csv.GetRecords<Inkjet>().ToList();
+                    list_inkjet_catch = list_inkjet;
                     if (list_inkjet.Count > 0)
                     {
                         var lastItem = list_inkjet.LastOrDefault();
@@ -76,6 +84,8 @@ namespace inkjet.Class
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+
+                return list_inkjet_catch;
                 //MessageBox.Show(e.ToString());
             }
             return list_inkjet;

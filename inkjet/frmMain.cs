@@ -40,6 +40,7 @@ namespace inkjet
         
         private void frmMain_Load(object sender, EventArgs e)
         {
+            clear_old_data();
             chk_file();
             permisstion();
             TimerClient.Start_timer();
@@ -54,7 +55,6 @@ namespace inkjet
             panelContainer.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
             uc.BringToFront();
-            
         }
 
         private void btnOverview_Click(object sender, EventArgs e)
@@ -82,7 +82,6 @@ namespace inkjet
             //}
             //else
             //{
-                Console.WriteLine("111111111111111111");
                 ucCSVmarking uc = ucCSVmarking.Instance;
                 addUserControl(uc);
             //}
@@ -193,6 +192,8 @@ namespace inkjet
                 userControl.BringToFront();
                 get_Userinfo();
                 permisstion();
+
+               
             }
         }
 
@@ -235,6 +236,39 @@ namespace inkjet
                 }
             }
           
+        }
+
+        public static void clear_old_data()
+        {
+            List<Error> error_list = Error.ListError();
+            List<Error> error_update = new List<Error>();
+
+            List<Datalog> datalog_list = Datalog.ListDatalog();
+            List<Datalog> datalog_update = new List<Datalog>();
+
+            DateTime ago = DateTime.Now.AddMonths(-3);
+
+            for (int i = 0;i < error_list.Count; i++)
+            {
+                DateTime loadedDate = DateTime.ParseExact(error_list[i].Date, "d", null);
+                if (loadedDate > ago)
+                {
+                    error_update.Add(error_list[i]);                   
+                }
+            }
+
+            for (int i = 0; i < datalog_list.Count; i++)
+            {
+                DateTime enteredDate = DateTime.Parse(datalog_list[i].DateStart);
+           
+                if (enteredDate > ago)
+                {
+                    datalog_update.Add(datalog_list[i]);
+                }
+            }
+
+            Error.Update_Error(error_update);
+            Datalog.Update_Datalog(datalog_update);
         }
     }
 }

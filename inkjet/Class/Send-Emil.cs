@@ -15,7 +15,14 @@ namespace send_email
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress("theerasak789900@gmail.com");
             mailMessage.To.Add(name);
-            mailMessage.Subject = subject;
+            try
+            {
+                mailMessage.Subject = subject;
+            }
+            catch
+            {
+                Console.WriteLine(subject);
+            }
             mailMessage.Body = detail;
 
             SmtpClient smtpClient = new SmtpClient();

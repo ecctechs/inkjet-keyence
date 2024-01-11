@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using CsvHelper;
 using Guna.UI2.WinForms;
@@ -20,7 +21,6 @@ namespace inkjet.UserControls
 {
     public partial class ucOverview : UserControl
     {
-
         public ucOverview()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace inkjet.UserControls
 
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         public void InitTimer()
-        {
+        {           
             myTimer = new System.Windows.Forms.Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
 
@@ -51,10 +51,10 @@ namespace inkjet.UserControls
         {
             flowLayoutPanel1.Controls.Clear();
             List<Inkjet> records = Inkjet.ListInkjet();
-
             for (int i = 0; i < records.Count; i++)
             {
                 itemOverview item = new itemOverview();
+                flowLayoutPanel1.Controls.Remove(item); 
                 item.guna2HtmlLabel9.Text = records[i].InkJetName;
                 item.guna2HtmlLabel10.Text = records[i].IPAdress;
                 item.guna2HtmlLabel11.Text = records[i].Status_inkjet;
@@ -109,10 +109,14 @@ namespace inkjet.UserControls
                 //flowLayoutPanel1.Left = (this.ClientSize.Width - flowLayoutPanel1.Width) / 2;
                 flowLayoutPanel1.Controls.Add(item);
 
+                foreach (Control control in flowLayoutPanel1.Controls)
+                {
+                    control.Size = new Size(flowLayoutPanel1.Width - control.Margin.Horizontal,
+                                            control.Height);
+                }
+
                 //item.Left = (this.ClientSize.Width - item.Width) / 2;
                 //flowLayoutPanel1.Anchor = AnchorStyles.None;
-
-
 
                 //panel1.Dock = DockStyle.Fill;
                 //panel1.Controls.Clear();
@@ -122,14 +126,13 @@ namespace inkjet.UserControls
 
                 //flowLayoutPanel1.Controls.Add(new Guna2Button() { Text = "Button name" });
                 //flowLayoutPanel1.Controls.Add(new Guna2Shapes() { Text = "Button name" , Shape  = Guna.UI2.WinForms.Enums.ShapeType.Rounded });
-            }            
+            }     
+            
         }
         private void ucOverview_Load(object sender, EventArgs e)
         {
             get_item();           
             InitTimer();
-           
-
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -139,7 +142,13 @@ namespace inkjet.UserControls
 
         private void ucOverview_ClientSizeChanged(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Left = (this.ClientSize.Width - flowLayoutPanel1.Width) / 2;
+            //flowLayoutPanel1.Left = (this.ClientSize.Width - flowLayoutPanel1.Width) / 2;
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                control.Size = new Size(flowLayoutPanel1.Width - control.Margin.Horizontal,
+                                        control.Height);
+            }
         }
+
     }
 }
