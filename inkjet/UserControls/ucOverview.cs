@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -21,9 +22,14 @@ namespace inkjet.UserControls
 {
     public partial class ucOverview : UserControl
     {
+   
+
         public ucOverview()
         {
             InitializeComponent();
+            typeof(FlowLayoutPanel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
+| BindingFlags.Instance | BindingFlags.NonPublic, null,
+flowLayoutPanel1, new object[] { true });
 
             //itemOverview item = new itemOverview();
             //item.Width = this.Width - 10;
@@ -34,6 +40,7 @@ namespace inkjet.UserControls
             //this.Controls.Add(item);
             //item.Anchor = AnchorStyles.None;
         }
+
 
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         public void InitTimer()
@@ -49,12 +56,18 @@ namespace inkjet.UserControls
 
         public void get_item()
         {
-            flowLayoutPanel1.Controls.Clear();
+//            typeof(FlowLayoutPanel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
+//| BindingFlags.Instance | BindingFlags.NonPublic, null,
+//flowLayoutPanel1, new object[] { true });
+
             List<Inkjet> records = Inkjet.ListInkjet();
+            flowLayoutPanel1.Controls.Clear();
+
+
             for (int i = 0; i < records.Count; i++)
             {
                 itemOverview item = new itemOverview();
-                flowLayoutPanel1.Controls.Remove(item); 
+                //flowLayoutPanel1.Controls.Remove(item); 
                 item.guna2HtmlLabel9.Text = records[i].InkJetName;
                 item.guna2HtmlLabel10.Text = records[i].IPAdress;
                 item.guna2HtmlLabel11.Text = records[i].Status_inkjet;
@@ -107,7 +120,9 @@ namespace inkjet.UserControls
                     item.guna2GradientPanel1.BorderColor = Color.Gray;
                 }
                 //flowLayoutPanel1.Left = (this.ClientSize.Width - flowLayoutPanel1.Width) / 2;
+
                 flowLayoutPanel1.Controls.Add(item);
+
 
                 foreach (Control control in flowLayoutPanel1.Controls)
                 {
@@ -126,8 +141,10 @@ namespace inkjet.UserControls
 
                 //flowLayoutPanel1.Controls.Add(new Guna2Button() { Text = "Button name" });
                 //flowLayoutPanel1.Controls.Add(new Guna2Shapes() { Text = "Button name" , Shape  = Guna.UI2.WinForms.Enums.ShapeType.Rounded });
-            }     
-            
+            }
+
+            //flowLayoutPanel1.Controls.Add(item);
+
         }
         private void ucOverview_Load(object sender, EventArgs e)
         {

@@ -15,6 +15,16 @@ namespace inkjet.UserControls
         public itemOverview()
         {
             InitializeComponent();
+
+            this.DoubleBuffered = true;
+
+            // or
+
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            UpdateStyles();
         }
+
+
     }
 }
