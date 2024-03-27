@@ -157,7 +157,18 @@ namespace inkjet.UserControls
             inkjet_name = "";
             CsvButtonStart.Show();
             CsvButtonStop.Hide();
-            guna2ComboBox1.SelectedIndex = 0;
+
+         
+            if (guna2ComboBox1.Items.Count == 0)
+            {
+                MessageBox.Show("กรูณาเพิ่มเครื่อง inkjet ก่อน");
+                guna2TextBox1.Text = "";
+            }
+            else
+            {
+                guna2ComboBox1.SelectedIndex = 0;
+            }
+
             guna2TextBox5.Text = "";
             guna2TextBox6.Text = "";
             guna2TextBox2.Clear();
