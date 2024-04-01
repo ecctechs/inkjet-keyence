@@ -50,8 +50,6 @@ namespace inkjet
                 // Combine the path with the file path
                 string filePath = Path.Combine(path, "Inkjet", "Data", "expiration.txt");
 
-                Console.WriteLine(filePath);
-
                 // Check if the file exists
                 if (!File.Exists(filePath))
                 {
@@ -256,8 +254,6 @@ namespace inkjet
                 userControl.BringToFront();
                 get_Userinfo();
                 permisstion();
-
-               
             }
         }
 

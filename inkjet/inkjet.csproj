@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3F56F231-AB57-42FE-B941-D61BB6DF0EEB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>inkjet</RootNamespace>
     <AssemblyName>inkjet</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>

@@ -68,7 +68,6 @@ namespace inkjet
             {
                 var full_ip = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text;
                 var chk_duplicate = Inkjet.Duplicate_Inkjet(full_ip, txtEditID.Text);
-                Console.WriteLine("----"+txtInkjetName.Text);
 
                 if (chk_duplicate == true && txtEditID.Text == "") //ถ้าไม่มีซํ้า และ ไม่มี id เก่า ให้ add ใหม่
                 {
@@ -81,11 +80,8 @@ namespace inkjet
                 }
 
                 else if (chk_duplicate == true && txtEditID.Text != null) //ถ้าไม่มีซํ้า และ มี id เก่า ให้ไป update อันเดิม
-                {
-
-                    
+                {                  
                     string program_name_running = ucCSVmarking.inkjet_name;
-                    Console.WriteLine("---->>"+ program_name_running + "+++"+ txtInkjetName.Text);
                     List<Inkjet> inkjet_list = Inkjet.ListInkjet();
               
                         for (int i = 0; i < inkjet_list.Count; i++)
@@ -99,37 +95,7 @@ namespace inkjet
                             }
                             Inkjet.Update_Inkjet(inkjet_list);
                         }
-                        DialogResult = DialogResult.OK;
-                    //}
-                    //for (int i = 0; i < inkjet_list.Count; i++)
-                    //    {
-
-                    //        if (txtEditID.Text == inkjet_list[i].InkJetID.ToString())
-                    //        {
-                    //            inkjet_list[i].InkJetID = Convert.ToInt32(txtEditID.Text);
-                    //            inkjet_list[i].InkJetName = txtInkjetName.Text;
-                    //            inkjet_list[i].IPAdress = full_ip;
-                    //        } 
-                    //        Inkjet.Update_Inkjet(inkjet_list);
-                    //    }
-                    //    DialogResult = DialogResult.OK;
-                    
-
-                        //for (int i = 0; i < inkjet_list.Count; i++)
-                        //{
-
-                        //    if (txtEditID.Text == inkjet_list[i].InkJetID.ToString())
-                        //    {
-                        //        inkjet_list[i].InkJetID = Convert.ToInt32(txtEditID.Text);
-                        //        inkjet_list[i].InkJetName = txtInkjetName.Text;
-                        //        inkjet_list[i].IPAdress = full_ip;
-                        //    }
-                        //        Inkjet.Update_Inkjet(inkjet_list);                           
-                        //}
-                        //DialogResult = DialogResult.OK;
-                        //}
-                    
-                    //MessageBox.Show(this, "Update Data Success");
+                        DialogResult = DialogResult.OK;            
                 }
                 else
                 {
