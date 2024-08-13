@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3F56F231-AB57-42FE-B941-D61BB6DF0EEB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>inkjet</RootNamespace>
     <AssemblyName>inkjet</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <LangVersion>8.0</LangVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\</PublishUrl>
+    <PublishUrl>C:\Users\theer\OneDrive\Desktop\Inkjet\setup\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -62,7 +62,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -73,6 +73,9 @@
   <ItemGroup>
     <Reference Include="CsvHelper, Version=30.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.30.0.1\lib\net47\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="ECCLibary">
+      <HintPath>..\..\ECCLibary\ECCLibary\bin\Debug\net6.0\ECCLibary.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net472\Guna.UI2.dll</HintPath>
@@ -126,6 +129,7 @@
     </Compile>
     <Compile Include="Class\Client.cs" />
     <Compile Include="Class\csvMarking.cs" />
+    <Compile Include="Class\CsvMarkingCreateCSV.cs" />
     <Compile Include="Class\Datalog.cs" />
     <Compile Include="Class\Email.cs" />
     <Compile Include="Class\Error.cs" />
@@ -161,6 +165,12 @@
     </Compile>
     <Compile Include="UserControls\ucCSVmarking.Designer.cs">
       <DependentUpon>ucCSVmarking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCSVmarking2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCSVmarking2.Designer.cs">
+      <DependentUpon>ucCSVmarking2.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucData.cs">
       <SubType>UserControl</SubType>
@@ -234,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucCSVmarking.resx">
       <DependentUpon>ucCSVmarking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCSVmarking2.resx">
+      <DependentUpon>ucCSVmarking2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucData.resx">
       <DependentUpon>ucData.cs</DependentUpon>

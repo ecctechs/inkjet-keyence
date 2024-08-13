@@ -35,13 +35,15 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.txtCount = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.detailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CsvbindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.InkjetbindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -63,6 +65,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.CsvButtonStop = new Guna.UI2.WinForms.Guna2CircleButton();
             this.CsvButtonStart = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -110,6 +113,8 @@
             this.guna2GradientPanel1.BorderColor = System.Drawing.Color.Black;
             this.guna2GradientPanel1.BorderRadius = 5;
             this.guna2GradientPanel1.BorderThickness = 5;
+            this.guna2GradientPanel1.Controls.Add(this.guna2Button1);
+            this.guna2GradientPanel1.Controls.Add(this.txtCount);
             this.guna2GradientPanel1.Controls.Add(this.guna2ComboBox2);
             this.guna2GradientPanel1.Controls.Add(this.guna2TextBox6);
             this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel6);
@@ -128,6 +133,43 @@
             this.guna2GradientPanel1.Padding = new System.Windows.Forms.Padding(20);
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1367, 340);
             this.guna2GradientPanel1.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(655, 189);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(96, 45);
+            this.guna2Button1.TabIndex = 19;
+            this.guna2Button1.Text = "guna2Button1";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // txtCount
+            // 
+            this.txtCount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCount.DefaultText = "";
+            this.txtCount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCount.Location = new System.Drawing.Point(539, 257);
+            this.txtCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.PasswordChar = '\0';
+            this.txtCount.PlaceholderText = "";
+            this.txtCount.SelectedText = "";
+            this.txtCount.Size = new System.Drawing.Size(229, 48);
+            this.txtCount.TabIndex = 18;
+            this.txtCount.Visible = false;
+            this.txtCount.TextChanged += new System.EventHandler(this.txtCount_TextChanged);
             // 
             // guna2ComboBox2
             // 
@@ -241,7 +283,7 @@
             this.guna2DataGridView1.ColumnHeadersHeight = 18;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.detailDataGridViewTextBoxColumn});
+            this.Detail});
             this.guna2DataGridView1.DataSource = this.CsvbindingSource1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -282,12 +324,12 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.Visible = false;
             // 
-            // detailDataGridViewTextBoxColumn
+            // Detail
             // 
-            this.detailDataGridViewTextBoxColumn.DataPropertyName = "Detail";
-            this.detailDataGridViewTextBoxColumn.HeaderText = "Detail";
-            this.detailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.detailDataGridViewTextBoxColumn.Name = "detailDataGridViewTextBoxColumn";
+            this.Detail.DataPropertyName = "Detail";
+            this.Detail.HeaderText = "Detail";
+            this.Detail.MinimumWidth = 6;
+            this.Detail.Name = "Detail";
             // 
             // CsvbindingSource1
             // 
@@ -609,7 +651,7 @@
             this.CsvButtonStop.FillColor = System.Drawing.Color.Red;
             this.CsvButtonStop.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CsvButtonStop.ForeColor = System.Drawing.Color.White;
-            this.CsvButtonStop.Location = new System.Drawing.Point(123, 51);
+            this.CsvButtonStop.Location = new System.Drawing.Point(338, 28);
             this.CsvButtonStop.Name = "CsvButtonStop";
             this.CsvButtonStop.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CsvButtonStop.Size = new System.Drawing.Size(232, 203);
@@ -630,13 +672,28 @@
             this.CsvButtonStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.CsvButtonStart.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CsvButtonStart.ForeColor = System.Drawing.Color.White;
-            this.CsvButtonStart.Location = new System.Drawing.Point(123, 51);
+            this.CsvButtonStart.Location = new System.Drawing.Point(338, 28);
             this.CsvButtonStart.Name = "CsvButtonStart";
             this.CsvButtonStart.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.CsvButtonStart.Size = new System.Drawing.Size(232, 203);
             this.CsvButtonStart.TabIndex = 1;
             this.CsvButtonStart.Text = "START";
             this.CsvButtonStart.Click += new System.EventHandler(this.CsvButtonStart_Click);
+            // 
+            // guna2ContextMenuStrip1
+            // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
+            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
+            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // ucCSVmarking
             // 
@@ -685,7 +742,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn blockNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detailDataGridViewTextBoxColumn;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
@@ -698,5 +754,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private Guna.UI2.WinForms.Guna2TextBox txtCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Detail;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
