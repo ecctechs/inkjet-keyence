@@ -1,0 +1,2 @@
+InkJet ID,InkJet Name,IP Address,Status,Status_inkjet,Ink,Solvent,Pump,Filter,Program,Reset
+2,tyr,192.168.0.2,Connected,Suspended,Normal,Normal,Normal,Normal,,

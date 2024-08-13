@@ -1,0 +1,6 @@
+Ink Jet,Error Type,Error Code,Detail,Date,Time,Shift,InK Level,Solvent level,Pump Life time,Filter Life time,Status
+tyr,Warning,143,Long-term Stop Detected,26/6/2567,13:07,,Normal,Normal,Normal,Normal,1
+tyr,Warning,151,Cleaning Inside Path Required Error,26/6/2567,13:07,,Normal,Normal,Normal,Normal,1
+tyr,Warning,143,Long-term Stop Detected,27/6/2567,09:40,,Normal,Normal,Normal,Normal,1
+tyr,Warning,145,Illegal Power Disconnect Detected,27/6/2567,09:40,,Normal,Normal,Normal,Normal,1
+tyr,Warning,151,Cleaning Inside Path Required Error,27/6/2567,09:40,,Normal,Normal,Normal,Normal,1

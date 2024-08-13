@@ -1,0 +1,76 @@
+วิธีใช้งานโปรแกรมเบื้องตัน
+1. เพิ่มผู้ใช้งาน เข้าไปที่โฟล์เดอร์ data -> User
+  - User ID -> 1
+  - UserName -> your name
+  - User Password -> your password
+  - User Role -> your operter name
+  - User Password Operator -> your operter password
+
+2.ล็อคอินเข้าสู่ระบบด้วย UserName และ User Password 
+
+3.เพิ่มข้อมูล Setting
+ - Email Alert กรอกอีเมลที่ต้องการให้แจ้งเตือนเมื่อเกิด error หรือ warning (สามารถใส่ได้หลายเมล์)
+ - Shift Setting กรอกชื่อกะ และเวลา เช่น กะเช้า 8:00 , กะกลางวัน 12:00 , กะดึก 21.00 เป็นต้น
+ - User แก้ไขข้อมูล การ login และ ข้อมูล operter
+
+4.เพิ่มข้อมูล inkjet
+ - ไปที่หน้า Connection
+ - กด Add
+ - ใส่ข้อมูล IPAddress และ Inkjet Name
+
+5.หน้า Overview
+ - โชว์ข้อมูลและรายละเอียด Inket ทั้งหมด 
+ - ข้อมูลอัพเดท ทุก ๆ 5 วินาที 
+ - status สีเทา Stop , Suspended , Discontect
+ - Status สีเขียว Printable
+ - Status สีส้ม Warning
+ - Status สีแดง Error
+ - Status สีเหลือง Starting , Shutting Down
+ - Name ชื่อเครื่อง ink jet
+ - IP Address เลขไอพี
+ - Ink Empty,Low,Normal (ตรวจจับจาก Error Detail ถ้าชื่อ error มีคําว่า Emtpy หรือ Low)
+ - Solvent Empty,Low,Normal (ตรวจจับจาก Error Detail ถ้าชื่อ error มีคําว่า Emtpy หรือ Low)
+ - Pump Error,Warning,Normal (ตรวจจับจาก Error Detail ถ้าชื่อ error มีคําว่า Error หรือ Warning)
+ - Filter Error,Warning,Normal (ตรวจจับจาก Error Detail ถ้าชื่อ error มีคําว่า Error หรือ Warning)
+
+6.หน้า CSVmarking
+ - Upload file (ไฟล์ CSV ที่อัพโหลด ต้องมีหัวข้อชื่อ Detail แถวถัดไป คือ Data ที่ต้องการยิง)
+ - Inkjet เลือกชื่อ inkjet ที่ต้องการยิง
+ - Program No. ระบุ programs no ที่ต้องการยิง (ชื่อโปรแกรมจะถูกโชว์ด้านข้าง)
+ - Block No. ระบุ Block no ที่ต้องการยิง (กรณีสร้าง block ไว้แล้วข้อมูลจะถูกแทนที่ แต่ถ้ากรณีที่ยังไม่สร้าง block จะสร้างblock ให้อัตโนมัติ)
+ - Current Data โชว์ Data ที่ยิงไปแล้ว
+ - Next Data โชว์ Data ที่จะยิงถัดไป
+ - Total Amount โชว์ จํานวนครั้งที่ยิง เริ่มต้น/สิ้นสุด
+ - Start เริ่มการยิ่ง
+ - Stop ทําการ Suspended ชั่วคราว
+ - เมื่อยิงครบจะมีการแจ้งเตือน success
+ - inkjet ที่กําลังยิง ไม่สามารถ edit ได้
+ - upload file ใหม่ เป็นการ clear ข้อมูลออกทั้งหมด
+ - Program No ไม่สามารถใส่เกิน 500 
+ - Block No ไม่สามารถใส่เกิน 256
+
+3.หน้า Error History
+ - ข้อมูลอัพเดท ทุก ๆ 5 วินาที 
+ - เมื่อ inkjet เกิด error หรือ warning จะถูกเพิ่มในตาราง
+ - ค้นหาตาม เครื่อง ได้
+ - ค้นหาตาม Shift ได้
+ - ค้นหาตามวันที่ได้ 
+ - export ข้อมูลในรูปแบบของ Excel 
+
+4.หน้า Data Log
+ - ข้อมูลอัพเดท ทุก ๆ 5 วินาที
+ - เมื่อ inkjet เปลี่ยนสถานะจาก stop มา start จะถูกเพิ่มข้อมูลในตาราง โดยข้อมูล Qty กับ Date End จะว่าง
+- เมื่อ inkjet เปลี่ยนสถานะจาก Start มา Stop ข้อมูล Qty และ Data End จะถูกอัพเดทโดยอัตโนมัติ ตามจํานวนครั้งการยิง (กรณีที่จํานวนการยิงเป็น 0 จะถูกลบ)
+- เมื่อ inkjet เปลี่ยนโปรแกรม ข้อมูล Qty และ Data End จะถูกอัพเดทโดยอัตโนมัติ ตามจํานวนครั้งการยิง (กรณีที่จํานวนการยิงเป็น 0 จะถูกลบ) และเพิ่ม row ใหม่เป็นเครื่องที่เปลี่ยน โดยข้อมูล Qty กับ Date End จะว่าง
+ - ค้นหาตาม เครื่อง ได้
+ - ค้นหาตาม Shift ได้
+ - ค้นหาตามวันที่ได้ 
+ - export ข้อมูลในรูปแบบของ Excel 
+
+5.หน้า Connection
+ - โชว์ข้อมูล Inkjet ทั้งหมดในตาราง
+ - กด Add เพื่อเพิ่มข้อมูล inkjet
+ - กด Edit เพื่อต้องการแก้ไข inkjet
+ - กด Delete เพื่อต้องการลบ Inkjet
+ 
+

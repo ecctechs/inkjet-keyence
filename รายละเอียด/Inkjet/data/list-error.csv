@@ -1,0 +1,209 @@
+﻿Error Code,Error Detail,Error Type
+1,Main Tank Empty Error,Error
+2,Main Tank Full Error,Error
+3,Conditioning Tank Full Error,Error
+4,Main Tank Level Gauge Error,Error
+5,Conditioning Tank Level Gauge Error,Error
+6,Viscometer Level Error,Error
+7,Ink Pressure (Low) Error,Error
+8,Ink Pressure (High) Error,Error
+9,Controller Temp High Error,Error
+10,Controller Temp Low Error,Error
+11,Head Temp High Error ,Error
+12,Head Temp Low Error,Error
+13,Trigger On Time Over Error,Error
+14,Voltage Leak Error,Error
+15,Head Cover Open Error,Error
+16,Gutter Sensor Error 1,Error
+17,Nozzle Clogging Error,Error
+18,Encoder Speed Over Error,Error
+19,Print Trigger Overlap Erro,Error
+20,Short Print Interval Error,Error
+21,Tracking Count Over Error,Error
+22,Short Trigger Delay Error,Error
+23,Short Continuous Print Trigger Error,Error
+24,System Memory Error,Error
+25,Pump Lifespan Error,Error
+26,Pump Control Error,Error
+27,Replacing Pump,Error
+28,Hard Error 1,Error
+29,Hard Error 2,Error
+30,Hard Error 3,Error
+31,Soft Error 1,Error
+32,Filter A Lifespan Error,Error
+33,Phase Alignment Error (5 Minutes Elapsed),Error
+34,Filter B Lifespan Error,Error
+35,Air Intake Fan Locked Error,Error
+36,Internal Fan Locked Error,Error
+37,Heater Control Error,Error
+38,Piezo FB Error,Error
+39,Dirty Charging Sensor Error,Error
+40,Phase Alignment Error,Error
+41,RS232C Communication Error,Error
+42,Font Data Error,Error
+43,Printing Stop Input ON (Terminal),Error
+44,Ink Particles Forming,Error
+45,Gutter Sensor Error 2,Error
+46,Cannot Adjust Viscosity Error,Error
+47,Cartridge Holder Open Error,Error
+48,Internal Communication Error,Error
+49,Dirt In Print Head Error,Error
+50,Insufficient Charging Data Error,Error
+51,Charging Offset Error,Error
+52,Solenoid Valve No. 6 Error,Error
+53,Solenoid Valve No. 12 Error,Error
+54,Solenoid Valve No. 14 Error,Error
+55,Solenoid Valve No. 15 Error,Error
+56,Heater Error,Error
+57,Solvent Shaft Check Error,Error
+58,"Deflector Voltage Leak Error 
+(5 Minutes Elapsed)",Error
+59,Head Cover Open Error 2,Error
+60,ink Path Unit Lifespan Error,Error
+61,Cleaning Inside Path Recommendation Error,Error
+62,Ink Shaft Check Error,Error
+63,Path Hardening Check Error,Error
+64,Maitenance Not Complete Error,Error
+65,Power Outage Detection Error,Error
+66,Main Tank Supply Abnormal Error,Error
+67,Drain Error,Error
+68,Pressure Error,Error
+69,CV-X/IV2 Send Judgment Character String Error 1,Error
+70,CV-X/IV2 Trigger Delay Error,Error
+71,CV-X/IV2 Trigger Tracking Count Over Error,Error
+72,Trigger Delay Over Error,Error
+73,Viscometer Count Error 1,Error
+74,Viscometer Count Error 2,Error
+75,Viscometer Count Error 3,Error
+76,Viscometer Count Error 4,Error
+77,MK Dock Head Not Detected Error,Error
+78,MK Dock Bottle Full Error,Error
+79,MK Dock Bottle Not Detected Error,Error
+80,MK Dock Connection Error,Error
+81,MK Dock Mount Error,Error
+91,Ethernet Communication Disconnect Error,Error
+92,CV-X/IV2 Linked Communication Disconnect Error,Error
+93,Internal Communication Timeout Error,Error
+94,Soft Error 2,Error
+95,SNTP Time Misalignment Detected,Error
+96,CV-X/IV2 Inspection Setting Switch Error 1,Error
+97,CV-X/IV2 Inspection Setting Switch Error 2,Error
+98,CV-X/IV2 Send Judgment Character String Error 2,Error
+99,CV-X/IV2 Send Judgment Character String Error 3,Error
+101,Ink Cartridge Empty Warning,Warning
+102,"• Solvent Cartridge Empty Warning
+• Right Side Solvent Cartridge Empty 
+Warning (PY/PW)",Warning
+103,Cartridge Holder Open,Warning
+104,Ink Viscosity (Thick),Warning
+105,Ink Viscosity (Thin),Warning
+106,Controller Temperature High Warning,Warning
+107,Controller Temperature Low Warning 1,Warning
+108,Head Temperature High Warning,Warning
+109,Head Temperature Low Warning,Warning
+110,Viscometer Count Warning 1,Warning
+111,Viscometer Count Warning 2,Warning
+112,Viscometer Count Warning 3,Warning
+113,Viscometer Count Warning 4,Warning
+114,Filter A Replacement Warning,Warning
+115,MK Dock Malfunction Detection Warning,Warning
+116,Filter B Replacement Warning,Warning
+117,Pump Lifespan Warning,Warning
+118,Pump Replacement Warning,Warning
+119,Short Continuous Print Trigger Warning,Warning
+120,Encoder Speed Over Warning,Warning
+121,Printing Stop ON (Terminal),Warning
+122,SNTP Time Misalignment Detected,Warning
+123,Tracking Count Over Warning,Warning
+124,"Ethernet Communication Disconnect 
+Warning",Warning
+125,"CV-X/IV2 Linked Communication 
+Disconnect Warning",Warning
+126,"Print Trigger Detected During Ready 
+OFF",Warning
+127,Ink Path Unit Lifespan Warning,Warning
+128,Solenoid Valve Simultaneous Drive,Warning
+129,Filter A Lifespan Warning,Warning
+131,Filter B Lifespan Warning,Warning
+132,"• Ink Cartridge Unrecognizable
+• Left Side Cartridge Unrecognizable 
+(PY/PW)",Warning
+133,"• Solvent Cartridge Unrecognizable
+• Right Side Solvent Cartridge 
+Unrecognizable (PY/PW)",Warning
+134,"• Ink Cartridge Not Inserted
+• Left Side Cartridge Not Inserted 
+(PY/PW)",Warning
+135,"• Solvent Cartridge Type Mismatch
+• Right Side Solvent Cartridge Type 
+Mismatch (PY/PW)",Warning
+136,"• Ink Cartridge Expiration Date Soon
+• Left Side Ink Cartridge Expiration 
+Date Soon (PY/PW)",Warning
+137,"• Solvent Cartridge Expiration Date 
+Soon
+• Right Side Solvent Cartridge 
+Expiration Date Soon (PY/PW)",Warning
+138,"• Ink Cartridge Expiration Date Soon
+• Left Side Ink Cartridge Expiration 
+Date Soon (PY/PW)",Warning
+139,"• Solvent Cartridge Expiration Date 
+Soon
+• Right Side Solvent Cartridge 
+Expiration Date Soon (PY/PW",Warning
+140,Low Ink Cartridge Level,Warning
+141,"• Low Solvent Cartridge Level
+• Low Right Side Solvent Cartridge 
+Level (PY/PW)",Warning
+142,Conditioning Tank Full Warning,Warning
+143,Long-term Stop Detected,Warning
+145,Illegal Power Disconnect Detected,Warning
+146,Unusable Solvent Cartridge Detected,Warning
+147,"• Ink Cartridge Expired
+• Left Side Ink Cartridge Expired 
+(PY/PW)",Warning
+148,"• Solvent Cartridge Expired
+• Right Side Solvent Cartridge Expired 
+(PY/PW)",Warning
+149,"• Ink Cartridge Not Inserted for 1 Hour 
+or More
+• Left Side Cartridge Not Inserted for 1 
+Hour or More (PY/PW)",Warning
+150,"• Solvent Cartridge Not Inserted for 1 
+Hour or More
+• Right Side Solvent Cartridge Not 
+Inserted for 1 Hour or More (PY/PW)",Warning
+151,Cleaning Inside Path Required Error,Warning
+152, RS-232 Communication Error,Warning
+153,Air Intake Fan Locked Warning,Warning
+154,Internal Fan Locked Warning,Warning
+155,"CV-X/IV2 Trigger Tracking Count Over 
+Warning",Warning
+156,Pump priming not complete,Warning
+157,Air Pump Error,Warning
+158,Ink Path Unit Replacement Warning,Warning
+159,Main Tank Full Warning,Warning
+160,"CV-X/IV2 Send Judgment Character 
+String Warning 1",Warning
+181,"CV-X/IV2 Inspection Setting Switch 
+Warning 1",Warning
+182," CV-X/IV2 Inspection Setting Switch 
+Warning 2",Warning
+183,"CV-X/IV2 Send Judgment Character 
+String Warning 2",Warning
+184,"CV-X/IV2 Send Judgment Character 
+String Warning 3",Warning
+185,Low Main Tank Leve,Warning
+186,Left Cartridge Replacement Timing,Warning
+187,Ink Cartridge Settling Warning,Warning
+188,Momentary Stop Detection Warning,Warning
+189,Backup Module Lifespan Warning,Warning
+190,Backup Module Unit OFF,Warning
+191,MK Dock Bottle Full Warning,Warning
+192,MK Dock Bottle Not Detected Warning,Warning
+195,Inexecutable System Recording Warning,Warning
+196,Momentary Stop Detection Warning 2,Warning
+197," Internal Memory No Free Space 
+Warning",Warning
+198,USB Memory Low Free Space Warning,Warning
+199,USB Memory No Free Space Warning,Warning
