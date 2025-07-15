@@ -35,67 +35,116 @@ namespace inkjet
         public frmMain()
         {          
             InitializeComponent();
-            free_test();
-
-
+            //free_test();
+            CheckTrial();
         }
 
-        public void free_test()
+        //public void free_test()
+        //{
+        //    try
+        //    {
+        //        // Get the path to the desktop directory
+        //        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        //        // Combine the path with the file path
+        //        string filePath = Path.Combine(path, "Inkjet", "Data", "expiration.txt");
+
+        //        // Check if the file exists
+        //        if (!File.Exists(filePath))
+        //        {
+        //            MessageBox.Show("Expiration file not found. Please check the file path.", "File Not Found");
+        //            return; // Exit the method if the file does not exist
+        //        }
+
+        //        // Read all lines from the file
+        //        string[] lines = File.ReadAllLines(filePath);
+
+        //        // วันหมดอายุ
+        //        DateTime expirationDate;
+
+        //        // ค้นหาวันหมดอายุจากข้อมูลในไฟล์
+        //        foreach (string line in lines)
+        //        {
+        //            if (line.StartsWith("ExpirationDate="))
+        //            {
+        //                // ตัดข้อความ "ExpirationDate=" ออกและแปลงให้เป็นวันที่
+        //                string dateString = line.Substring("ExpirationDate=".Length);
+        //                expirationDate = DateTime.ParseExact(dateString, "yyyy-MM-dd", null);
+
+        //                DateTime now = DateTime.Now;
+
+        //                // เช็คว่าวันหมดอายุผ่านไปหรือยัง
+        //                if (DateTime.Now > expirationDate)
+        //                {
+        //                    MessageBox.Show("โปรแกรมทดลองใช้หมดอายุแล้ว. กรุณาซื้อโปรแกรมตัวเต็ม.", "หมดอายุการใช้งาน");
+        //                    Environment.Exit(0);
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("โปรแกรมตัวนี้เป็นเวอร์ชั่นทดลองใช้ จะหมดอายุในอีก: " + expirationDate.ToString("dd/MM/yyyy"));
+        //                }
+        //                // หลุดจากลูปหลักเมื่อพบข้อมูลวันหมดอายุแล้ว
+        //                break;
+        //            }
+        //        }
+        //    }
+        //    catch (FileNotFoundException)
+        //    {
+        //        Console.WriteLine("ไม่พบไฟล์ข้อมูลวันหมดอายุ");
+        //    }
+        //    catch (IOException e)
+        //    {
+        //        Console.WriteLine($"เกิดข้อผิดพลาดในการอ่านไฟล์: {e.Message}");
+        //    }
+        //}
+        public static void CheckTrial()
         {
             try
             {
-                // Get the path to the desktop directory
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                // เส้นทางไปยัง AppData -> YourAppName
+                string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string folderPath = Path.Combine(appDataPath, "InkjetTrial"); // ชื่อโฟลเดอร์สามารถเปลี่ยนได้
+                string filePath = Path.Combine(folderPath, "trial.dat");
 
-                // Combine the path with the file path
-                string filePath = Path.Combine(path, "Inkjet", "Data", "expiration.txt");
-
-                // Check if the file exists
-                if (!File.Exists(filePath))
+                // สร้างโฟลเดอร์ถ้ายังไม่มี
+                if (!Directory.Exists(folderPath))
                 {
-                    MessageBox.Show("Expiration file not found. Please check the file path.", "File Not Found");
-                    return; // Exit the method if the file does not exist
+                    Directory.CreateDirectory(folderPath);
                 }
 
-                // Read all lines from the file
-                string[] lines = File.ReadAllLines(filePath);
-
-                // วันหมดอายุ
-                DateTime expirationDate;
-
-                // ค้นหาวันหมดอายุจากข้อมูลในไฟล์
-                foreach (string line in lines)
+                // ถ้ายังไม่มีไฟล์ -> บันทึกวันเริ่มต้นใช้งาน
+                if (!File.Exists(filePath))
                 {
-                    if (line.StartsWith("ExpirationDate="))
+                    DateTime startDate = DateTime.Now;
+                    string encodedDate = Convert.ToBase64String(Encoding.UTF8.GetBytes(startDate.ToString("yyyy-MM-dd")));
+                    File.WriteAllText(filePath, encodedDate);
+                    MessageBox.Show("ยินดีต้อนรับสู่เวอร์ชั่นทดลองใช้ (15 วัน)", "Trial Started");
+                }
+                else
+                {
+                    // อ่านไฟล์ trial.dat
+                    string encodedDate = File.ReadAllText(filePath);
+                    string decodedDate = Encoding.UTF8.GetString(Convert.FromBase64String(encodedDate));
+                    DateTime startDate = DateTime.ParseExact(decodedDate, "yyyy-MM-dd", null);
+
+                    DateTime now = DateTime.Now;
+                    DateTime expireDate = startDate.AddDays(15);
+
+                    if (now > expireDate)
                     {
-                        // ตัดข้อความ "ExpirationDate=" ออกและแปลงให้เป็นวันที่
-                        string dateString = line.Substring("ExpirationDate=".Length);
-                        expirationDate = DateTime.ParseExact(dateString, "yyyy-MM-dd", null);
-
-                        DateTime now = DateTime.Now;
-
-                        // เช็คว่าวันหมดอายุผ่านไปหรือยัง
-                        if (DateTime.Now > expirationDate)
-                        {
-                            MessageBox.Show("โปรแกรมทดลองใช้หมดอายุแล้ว. กรุณาซื้อโปรแกรมตัวเต็ม.", "หมดอายุการใช้งาน");
-                            Environment.Exit(0);
-                        }
-                        else
-                        {
-                            MessageBox.Show("โปรแกรมตัวนี้เป็นเวอร์ชั่นทดลองใช้ จะหมดอายุในอีก: " + expirationDate.ToString("dd/MM/yyyy"));
-                        }
-                        // หลุดจากลูปหลักเมื่อพบข้อมูลวันหมดอายุแล้ว
-                        break;
+                        MessageBox.Show("หมดอายุการทดลองใช้งานแล้ว กรุณาติดต่อเพื่อซื้อโปรแกรม", "Trial Expired");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        int remainingDays = (expireDate - now).Days;
+                        MessageBox.Show($"คุณกำลังใช้งานเวอร์ชั่นทดลอง เหลือเวลาอีก {remainingDays} วัน", "Trial Active");
                     }
                 }
             }
-            catch (FileNotFoundException)
+            catch (Exception ex)
             {
-                Console.WriteLine("ไม่พบไฟล์ข้อมูลวันหมดอายุ");
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine($"เกิดข้อผิดพลาดในการอ่านไฟล์: {e.Message}");
+                MessageBox.Show($"เกิดข้อผิดพลาดในการตรวจสอบเวอร์ชั่นทดลอง: {ex.Message}", "Error");
             }
         }
 
